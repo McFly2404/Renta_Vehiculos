@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}DriveNow{% endblock %}</title>
+  {% load static %}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+  {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="/" class="nav__logo">Drive<em>Now</em></a>
+
+    <ul class="nav__links">
+      <li><a href="/#reservar">Reservar</a></li>
+      <li><a href="/#pagar">Pagar</a></li>
+      <li><a href="/#flota">Flota</a></li>
+      <li><a href="/docs/">API Docs</a></li>
+    </ul>
+
+    <!-- Estado de sesión — manipulado por nav.js -->
+    <div class="nav__session" id="navSession">
+      <!-- Sin sesión (default) -->
+      <div id="navGuest" class="nav__guest">
+        <a href="/login/"    class="nav__link-auth">Iniciar sesión</a>
+        <a href="/registro/" class="btn btn--sm">Crear cuenta</a>
+      </div>
+      <!-- Con sesión (oculto hasta que JS lo activa) -->
+      <div id="navUser" class="nav__user" hidden>
+        <div class="nav__user-chip" id="navUserChip">
+          <span class="nav__user-avatar" id="navUserAvatar">?</span>
+          <span class="nav__user-name"   id="navUserName">Usuario</span>
+          <span class="nav__user-id"     id="navUserId">#0</span>
+        </div>
+        <button class="nav__logout" id="btnLogout" title="Cerrar sesión">↩</button>
+      </div>
+    </div>
+  </nav>
+
+  <main>{% block content %}{% endblock %}</main>
+
+  <footer class="footer" id="contacto">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <span class="nav__logo">Drive<em>Now</em></span>
+        <p>Vehículos premium disponibles en toda la red nacional.</p>
+      </div>
+      <div class="footer__links">
+        <span class="footer__heading">Recursos</span>
+        <a href="/docs/">📖 Documentación API</a>
+        <a href="/admin/" target="_blank">⚙️ Admin</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2026 DriveNow — Arquitectura de Software</p>
+    </div>
+  </footer>
+
+  <!-- session.js debe cargarse antes que cualquier otro JS -->
+  <script src="{% static 'js/session.js' %}"></script>
+  <script src="{% static 'js/nav.js' %}"></script>
+  {% block extra_js %}{% endblock %}
+</body>
+</html>

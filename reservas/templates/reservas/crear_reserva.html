@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crear Reserva</title>
+</head>
+<body>
+
+<h1>Crear Reserva</h1>
+
+<form method="post">
+    {% csrf_token %}
+
+    <label>ID Usuario:</label><br>
+    <input type="number" name="usuario_id" required><br><br>
+
+    <label>ID Vehículo:</label><br>
+    <input type="number" name="vehiculo_id" required><br><br>
+
+    <label>Fecha Inicio:</label><br>
+    <input type="date" name="fecha_inicio" required><br><br>
+
+    <label>Fecha Fin:</label><br>
+    <input type="date" name="fecha_fin" required><br><br>
+
+    <button type="submit">Crear Reserva</button>
+</form>
+
+{% if reserva_id %}
+    <p>Reserva creada con ID: {{ reserva_id }}</p>
+{% endif %}
+
+</body>
+</html>
