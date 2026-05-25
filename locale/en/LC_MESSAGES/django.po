@@ -1,0 +1,60 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Renta_Vehiculos 2\n"
+"POT-Creation-Date: 2026-05-25 00:00+0000\n"
+"PO-Revision-Date: 2026-05-25 00:00+0000\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Integraciones"
+msgstr "Integrations"
+
+msgid "Reservar"
+msgstr "Book"
+
+msgid "Pagar"
+msgstr "Pay"
+
+msgid "Flota"
+msgstr "Fleet"
+
+msgid "API Docs"
+msgstr "API Docs"
+
+msgid "Idioma"
+msgstr "Language"
+
+msgid "Iniciar sesion"
+msgstr "Sign in"
+
+msgid "Crear cuenta"
+msgstr "Create account"
+
+msgid "Usuario"
+msgstr "User"
+
+msgid "Cerrar sesion"
+msgstr "Sign out"
+
+msgid "Vehiculos premium disponibles en toda la red nacional."
+msgstr "Premium vehicles available across the national network."
+
+msgid "Recursos"
+msgstr "Resources"
+
+msgid "Documentacion API"
+msgstr "API Documentation"
+
+msgid "Admin"
+msgstr "Admin"
+
+msgid "Arquitectura de Software"
+msgstr "Software Architecture"
+
+msgid "Spanish"
+msgstr "Spanish"
+
+msgid "English"
+msgstr "English"

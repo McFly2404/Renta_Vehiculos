@@ -102,7 +102,13 @@ class VehiculoListView(APIView):
     """GET /api/vehiculos/ — Lista vehículos; ?disponible=true filtra disponibles."""
 
     def get(self, request):
-        solo_disponibles = request.query_params.get("disponible", "").lower() == "true"
-        service   = ListarVehiculosService(vehiculo_repo=DjangoVehiculoRepository())
-        vehiculos = service.ejecutar(solo_disponibles=solo_disponibles)
+        disponible_raw = request.query_params.get("disponible", "").strip().lower()
+        disponible = None
+        if disponible_raw in {"true", "1", "yes", "si"}:
+            disponible = True
+        elif disponible_raw in {"false", "0", "no"}:
+            disponible = False
+
+        service = ListarVehiculosService(vehiculo_repo=DjangoVehiculoRepository())
+        vehiculos = service.ejecutar(disponible=disponible)
         return Response(VehiculoOutputSerializer(vehiculos, many=True).data)

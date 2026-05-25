@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block title %}DriveNow - {% trans "Integraciones" %}{% endblock %}
+
+{% block content %}
+<section class="section section--alt" id="integraciones" style="padding-top:calc(var(--nav-h) + 3rem);">
+  <div class="section__inner">
+    <div class="section__label">{% trans "Integraciones" %}</div>
+    <div class="section__header">
+      <h1 class="section__title">{% trans "Estado" %}<br/>{% trans "del Ecosistema" %}</h1>
+    </div>
+
+    <div class="vehicles-grid" id="integracionesGrid">
+      <article class="vehicle-card vehicle-card--skeleton"></article>
+      <article class="vehicle-card vehicle-card--skeleton"></article>
+      <article class="vehicle-card vehicle-card--skeleton"></article>
+    </div>
+
+    <div class="form-layout" style="margin-top:2.5rem;">
+      <div class="form-layout__info">
+        <h2 class="section__title" style="font-size:clamp(2rem, 6vw, 4rem);">{% trans "Servicios" %}<br/>{% trans "conectados" %}</h2>
+        <p class="section__body">
+          {% trans "Panel operativo para validar el servicio propio, el consumo del aliado y la API externa por Adapter." %}
+        </p>
+      </div>
+
+      <div class="form-card">
+        <p class="field__hint" style="margin-bottom:1rem;">{% trans "Endpoints de evidencia" %}</p>
+        <pre class="code-block">GET /api/integraciones/resumen/
+GET /api/integraciones/aliado/
+GET /api/integraciones/tercero/
+GET /api/integraciones/snapshot/</pre>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.code-block {
+  background: var(--c-ink);
+  color: #e8f5e9;
+  font-family: 'Courier New', monospace;
+  font-size: .82rem;
+  line-height: 1.7;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius);
+  overflow-x: auto;
+  white-space: pre;
+  margin: 0;
+}
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/integraciones.js' %}"></script>
+{% endblock %}

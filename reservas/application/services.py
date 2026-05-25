@@ -13,6 +13,7 @@ from reservas.domain.exceptions import (
 )
 from usuarios.domain.repositories import IUsuarioRepository
 from usuarios.domain.exceptions import UsuarioNoEncontradoError
+from reservas.tasks import notificar_reserva_creada
 
 
 class CrearReservaService:
@@ -23,7 +24,7 @@ class CrearReservaService:
         vehiculo_repo: IVehiculoRepository,
         usuario_repo:  IUsuarioRepository,
         reserva_repo:  IReservaRepository,
-        notificador,
+        notificador=None,
     ):
         self._vehiculo_repo = vehiculo_repo
         self._usuario_repo  = usuario_repo
@@ -54,8 +55,15 @@ class CrearReservaService:
         )
 
         self._vehiculo_repo.marcar_no_disponible(vehiculo)
-        self._notificador.enviar_confirmacion(reserva)
+        self._notificar_reserva(reserva)
         return reserva
+
+    def _notificar_reserva(self, reserva) -> None:
+        try:
+            notificar_reserva_creada.delay(reserva.id)
+        except Exception:
+            if self._notificador:
+                self._notificador.enviar_confirmacion(reserva)
 
 
 class CancelarReservaService:
@@ -110,7 +118,9 @@ class ListarVehiculosService:
     def __init__(self, vehiculo_repo: IVehiculoRepository):
         self._vehiculo_repo = vehiculo_repo
 
-    def ejecutar(self, solo_disponibles: bool = False):
-        if solo_disponibles:
+    def ejecutar(self, disponible: bool | None = None):
+        if disponible is True:
             return self._vehiculo_repo.listar_disponibles()
+        if disponible is False:
+            return self._vehiculo_repo.listar_no_disponibles()
         return self._vehiculo_repo.listar_todos()

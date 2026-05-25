@@ -13,3 +13,6 @@ class LoginView(TemplateView):
 
 class ApiDocsView(TemplateView):
     template_name = "api_docs.html"
+
+class IntegracionesView(TemplateView):
+    template_name = "integraciones.html"

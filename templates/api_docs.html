@@ -1,301 +1,200 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}DriveNow — Documentación API{% endblock %}
+{% block title %}DriveNow - Documentacion API{% endblock %}
 
 {% block content %}
 <div class="docs-layout">
-
-  <!-- SIDEBAR -->
   <aside class="docs-sidebar">
     <p class="docs-sidebar__title">Endpoints</p>
     <nav class="docs-nav">
-      <a href="#usuarios"  class="docs-nav__link">👤 Usuarios</a>
-      <a href="#vehiculos" class="docs-nav__link">🚗 Vehículos</a>
-      <a href="#reservas"  class="docs-nav__link">📋 Reservas</a>
-      <a href="#pagos"     class="docs-nav__link">💳 Pagos</a>
+      <a href="#usuarios" class="docs-nav__link">Usuarios</a>
+      <a href="#vehiculos" class="docs-nav__link">Vehiculos</a>
+      <a href="#reservas" class="docs-nav__link">Reservas</a>
+      <a href="#pagos" class="docs-nav__link">Pagos</a>
+      <a href="#integraciones" class="docs-nav__link">Integraciones</a>
     </nav>
-    <div class="docs-sidebar__badge">
-      <span class="badge badge--get">GET</span>
-      <span class="badge badge--post">POST</span>
-    </div>
   </aside>
 
-  <!-- CONTENIDO -->
   <main class="docs-content">
-
     <div class="docs-hero">
       <h1 class="docs-hero__title">DriveNow <span>API</span></h1>
       <p class="docs-hero__sub">Base URL: <code>http://127.0.0.1:8000/api/</code></p>
     </div>
 
-    <!-- USUARIOS -->
     <section class="docs-section" id="usuarios">
       <h2 class="docs-section__title">Usuarios</h2>
-
-      <div class="endpoint">
+      <article class="endpoint">
         <div class="endpoint__header">
           <span class="badge badge--post">POST</span>
           <code class="endpoint__url">/api/usuarios/crear/</code>
-          <span class="endpoint__desc">Registrar nuevo usuario</span>
+          <span class="endpoint__desc">Registrar usuario</span>
         </div>
         <div class="endpoint__body">
-          <div class="endpoint__cols">
-            <div>
-              <p class="code-label">Request body</p>
-              <pre class="code-block">{
-  "nombre":   "Ana García",
-  "cedula":   "1234567890",
-  "correo":   "ana@email.com",
+          <pre class="code-block">{
+  "nombre": "Ana Garcia",
+  "cedula": "1234567890",
+  "correo": "ana@email.com",
   "licencia": "LIC-00123"
 }</pre>
-            </div>
-            <div>
-              <p class="code-label">Response <span class="badge badge--sm badge--green">201</span></p>
-              <pre class="code-block">{
-  "id":       1,
-  "nombre":   "Ana García",
-  "cedula":   "1234567890",
-  "correo":   "ana@email.com",
-  "licencia": "LIC-00123"
-}</pre>
-            </div>
-          </div>
-          <div class="status-row">
-            <span class="badge badge--green">201</span> Creado &nbsp;
-            <span class="badge badge--yellow">400</span> Datos inválidos &nbsp;
-            <span class="badge badge--red">409</span> Cédula o correo duplicado
-          </div>
           <button class="btn-try" data-method="POST" data-url="/api/usuarios/crear/"
-            data-body='{"nombre":"Ana García","cedula":"1234567890","correo":"ana@email.com","licencia":"LIC-00123"}'>
-            ▶ Probar
-          </button>
+            data-body='{"nombre":"Ana Garcia","cedula":"1234567890","correo":"ana@email.com","licencia":"LIC-00123"}'>Probar</button>
         </div>
-      </div>
-
-      <div class="endpoint">
+      </article>
+      <article class="endpoint">
         <div class="endpoint__header">
           <span class="badge badge--get">GET</span>
           <code class="endpoint__url">/api/usuarios/</code>
-          <span class="endpoint__desc">Listar todos los usuarios</span>
+          <span class="endpoint__desc">Listar usuarios</span>
         </div>
         <div class="endpoint__body">
-          <div class="status-row">
-            <span class="badge badge--green">200</span> OK
-          </div>
-          <button class="btn-try" data-method="GET" data-url="/api/usuarios/">▶ Probar</button>
+          <button class="btn-try" data-method="GET" data-url="/api/usuarios/">Probar</button>
         </div>
-      </div>
-
-      <div class="endpoint">
+      </article>
+      <article class="endpoint">
         <div class="endpoint__header">
           <span class="badge badge--get">GET</span>
-          <code class="endpoint__url">/api/usuarios/&lt;id&gt;/</code>
-          <span class="endpoint__desc">Detalle de un usuario</span>
+          <code class="endpoint__url">/api/usuarios/1/</code>
+          <span class="endpoint__desc">Detalle de usuario</span>
         </div>
         <div class="endpoint__body">
-          <div class="status-row">
-            <span class="badge badge--green">200</span> OK &nbsp;
-            <span class="badge badge--red">404</span> No encontrado
-          </div>
-          <button class="btn-try" data-method="GET" data-url="/api/usuarios/1/">▶ Probar</button>
+          <button class="btn-try" data-method="GET" data-url="/api/usuarios/1/">Probar</button>
         </div>
-      </div>
+      </article>
     </section>
 
-    <!-- VEHÍCULOS -->
     <section class="docs-section" id="vehiculos">
-      <h2 class="docs-section__title">Vehículos</h2>
-
-      <div class="endpoint">
+      <h2 class="docs-section__title">Vehiculos</h2>
+      <article class="endpoint">
         <div class="endpoint__header">
           <span class="badge badge--get">GET</span>
           <code class="endpoint__url">/api/vehiculos/</code>
-          <span class="endpoint__desc">Listar todos los vehículos</span>
+          <span class="endpoint__desc">Listar flota</span>
         </div>
         <div class="endpoint__body">
-          <p class="code-label">Query params opcionales</p>
-          <pre class="code-block">?disponible=true   → solo vehículos disponibles
-?disponible=false  → solo vehículos ocupados</pre>
-          <div class="status-row">
-            <span class="badge badge--green">200</span> OK
-          </div>
-          <div style="display:flex;gap:.75rem;flex-wrap:wrap">
-            <button class="btn-try" data-method="GET" data-url="/api/vehiculos/">▶ Todos</button>
-            <button class="btn-try" data-method="GET" data-url="/api/vehiculos/?disponible=true">▶ Disponibles</button>
-          </div>
+          <pre class="code-block">?disponible=true   -> solo vehiculos disponibles
+?disponible=false  -> solo vehiculos ocupados</pre>
+          <button class="btn-try" data-method="GET" data-url="/api/vehiculos/">Todos</button>
+          <button class="btn-try" data-method="GET" data-url="/api/vehiculos/?disponible=true">Disponibles</button>
         </div>
-      </div>
+      </article>
     </section>
 
-    <!-- RESERVAS -->
     <section class="docs-section" id="reservas">
       <h2 class="docs-section__title">Reservas</h2>
-
-      <div class="endpoint">
+      <article class="endpoint">
         <div class="endpoint__header">
           <span class="badge badge--post">POST</span>
           <code class="endpoint__url">/api/reservas/crear/</code>
-          <span class="endpoint__desc">Crear una reserva (por placa del vehículo)</span>
+          <span class="endpoint__desc">Crear reserva</span>
         </div>
         <div class="endpoint__body">
-          <div class="endpoint__cols">
-            <div>
-              <p class="code-label">Request body</p>
-              <pre class="code-block">{
-  "usuario_id":     1,
+          <pre class="code-block">{
+  "usuario_id": 1,
   "placa_vehiculo": "ABC-123",
-  "fecha_inicio":   "2026-04-01",
-  "fecha_fin":      "2026-04-05"
+  "fecha_inicio": "2026-06-01",
+  "fecha_fin": "2026-06-05"
 }</pre>
-            </div>
-            <div>
-              <p class="code-label">Response <span class="badge badge--sm badge--green">201</span></p>
-              <pre class="code-block">{
-  "id":          1,
-  "usuario":     { ... },
-  "vehiculo":    { "placa": "ABC-123", ... },
-  "fecha_inicio":"2026-04-01",
-  "fecha_fin":   "2026-04-05",
-  "estado":      "PENDIENTE"
-}</pre>
-            </div>
-          </div>
-          <div class="status-row">
-            <span class="badge badge--green">201</span> Creada &nbsp;
-            <span class="badge badge--yellow">400</span> Fechas inválidas &nbsp;
-            <span class="badge badge--red">404</span> Usuario o vehículo no existe &nbsp;
-            <span class="badge badge--red">409</span> Vehículo no disponible
-          </div>
           <button class="btn-try" data-method="POST" data-url="/api/reservas/crear/"
-            data-body='{"usuario_id":1,"placa_vehiculo":"ABC-123","fecha_inicio":"2026-04-10","fecha_fin":"2026-04-15"}'>
-            ▶ Probar
-          </button>
+            data-body='{"usuario_id":1,"placa_vehiculo":"ABC-123","fecha_inicio":"2026-06-01","fecha_fin":"2026-06-05"}'>Probar</button>
         </div>
-      </div>
-
-      <div class="endpoint">
+      </article>
+      <article class="endpoint">
         <div class="endpoint__header">
           <span class="badge badge--get">GET</span>
           <code class="endpoint__url">/api/reservas/</code>
-          <span class="endpoint__desc">Listar todas las reservas</span>
+          <span class="endpoint__desc">Listar reservas</span>
         </div>
         <div class="endpoint__body">
-          <button class="btn-try" data-method="GET" data-url="/api/reservas/">▶ Probar</button>
+          <button class="btn-try" data-method="GET" data-url="/api/reservas/">Probar</button>
         </div>
-      </div>
-
-      <div class="endpoint">
-        <div class="endpoint__header">
-          <span class="badge badge--get">GET</span>
-          <code class="endpoint__url">/api/reservas/&lt;id&gt;/</code>
-          <span class="endpoint__desc">Detalle de una reserva</span>
-        </div>
-        <div class="endpoint__body">
-          <div class="status-row">
-            <span class="badge badge--green">200</span> OK &nbsp;
-            <span class="badge badge--red">404</span> No encontrada
-          </div>
-          <button class="btn-try" data-method="GET" data-url="/api/reservas/1/">▶ Probar</button>
-        </div>
-      </div>
-
-      <div class="endpoint">
+      </article>
+      <article class="endpoint">
         <div class="endpoint__header">
           <span class="badge badge--post">POST</span>
-          <code class="endpoint__url">/api/reservas/&lt;id&gt;/cancelar/</code>
-          <span class="endpoint__desc">Cancelar una reserva</span>
+          <code class="endpoint__url">/api/reservas/1/cancelar/</code>
+          <span class="endpoint__desc">Cancelar reserva</span>
         </div>
         <div class="endpoint__body">
-          <div class="status-row">
-            <span class="badge badge--green">200</span> Cancelada &nbsp;
-            <span class="badge badge--red">404</span> No encontrada &nbsp;
-            <span class="badge badge--red">409</span> Ya cancelada
-          </div>
-          <button class="btn-try" data-method="POST" data-url="/api/reservas/1/cancelar/">▶ Probar</button>
+          <button class="btn-try" data-method="POST" data-url="/api/reservas/1/cancelar/">Probar</button>
         </div>
-      </div>
+      </article>
     </section>
 
-    <!-- PAGOS -->
     <section class="docs-section" id="pagos">
       <h2 class="docs-section__title">Pagos</h2>
-
-      <div class="endpoint">
+      <article class="endpoint">
         <div class="endpoint__header">
           <span class="badge badge--post">POST</span>
           <code class="endpoint__url">/api/pagos/</code>
-          <span class="endpoint__desc">Registrar un pago para una reserva</span>
+          <span class="endpoint__desc">Registrar pago</span>
         </div>
         <div class="endpoint__body">
-          <div class="endpoint__cols">
-            <div>
-              <p class="code-label">Request body</p>
-              <pre class="code-block">{
-  "reserva_id":  1,
-  "monto":       250000.00,
+          <pre class="code-block">{
+  "reserva_id": 1,
+  "monto": 250000,
   "metodo_pago": "TARJETA_CREDITO",
-  "fecha_pago":  "2026-04-01"
+  "fecha_pago": "2026-06-01"
 }</pre>
-              <p class="code-label" style="margin-top:1rem">Métodos válidos</p>
-              <pre class="code-block">EFECTIVO
-TARJETA_CREDITO
-TARJETA_DEBITO
-TRANSFERENCIA</pre>
-            </div>
-            <div>
-              <p class="code-label">Response <span class="badge badge--sm badge--green">201</span></p>
-              <pre class="code-block">{
-  "id":                  1,
-  "reserva":             1,
-  "monto":               "250000.00",
-  "estado_pago":         "APROBADO",
-  "estado_pago_display": "Aprobado",
-  "metodo_pago":         "TARJETA_CREDITO",
-  "metodo_pago_display": "Tarjeta de Crédito",
-  "fecha_pago":          "2026-04-01"
-}</pre>
-            </div>
-          </div>
-          <div class="status-row">
-            <span class="badge badge--green">201</span> Registrado &nbsp;
-            <span class="badge badge--yellow">400</span> Datos inválidos &nbsp;
-            <span class="badge badge--red">404</span> Reserva no existe &nbsp;
-            <span class="badge badge--red">409</span> Ya pagada o cancelada
-          </div>
           <button class="btn-try" data-method="POST" data-url="/api/pagos/"
-            data-body='{"reserva_id":1,"monto":250000,"metodo_pago":"TARJETA_CREDITO","fecha_pago":"2026-04-01"}'>
-            ▶ Probar
-          </button>
+            data-body='{"reserva_id":1,"monto":250000,"metodo_pago":"TARJETA_CREDITO","fecha_pago":"2026-06-01"}'>Probar</button>
         </div>
-      </div>
-
-      <div class="endpoint">
+      </article>
+      <article class="endpoint">
         <div class="endpoint__header">
-          <span class="badge badge--get">GET</span>
-          <code class="endpoint__url">/api/pagos/&lt;id&gt;/</code>
-          <span class="endpoint__desc">Detalle de un pago</span>
+          <span class="badge badge--post">POST</span>
+          <code class="endpoint__url">/api/v2/pagos/</code>
+          <span class="endpoint__desc">Microservicio Flask</span>
         </div>
         <div class="endpoint__body">
-          <div class="status-row">
-            <span class="badge badge--green">200</span> OK &nbsp;
-            <span class="badge badge--red">404</span> No encontrado
-          </div>
-          <button class="btn-try" data-method="GET" data-url="/api/pagos/1/">▶ Probar</button>
+          <button class="btn-try" data-method="POST" data-url="/api/v2/pagos/"
+            data-body='{"reserva_id":1,"monto":250000,"metodo_pago":"TARJETA_CREDITO","fecha_pago":"2026-06-01"}'>Probar</button>
         </div>
-      </div>
+      </article>
     </section>
 
+    <section class="docs-section" id="integraciones">
+      <h2 class="docs-section__title">Integraciones</h2>
+      <article class="endpoint">
+        <div class="endpoint__header">
+          <span class="badge badge--get">GET</span>
+          <code class="endpoint__url">/api/integraciones/resumen/</code>
+          <span class="endpoint__desc">Servicio propio JSON</span>
+        </div>
+        <div class="endpoint__body">
+          <button class="btn-try" data-method="GET" data-url="/api/integraciones/resumen/">Probar</button>
+        </div>
+      </article>
+      <article class="endpoint">
+        <div class="endpoint__header">
+          <span class="badge badge--get">GET</span>
+          <code class="endpoint__url">/api/integraciones/aliado/</code>
+          <span class="endpoint__desc">Servicio aliado</span>
+        </div>
+        <div class="endpoint__body">
+          <button class="btn-try" data-method="GET" data-url="/api/integraciones/aliado/">Probar</button>
+        </div>
+      </article>
+      <article class="endpoint">
+        <div class="endpoint__header">
+          <span class="badge badge--get">GET</span>
+          <code class="endpoint__url">/api/integraciones/tercero/</code>
+          <span class="endpoint__desc">API externa por Adapter</span>
+        </div>
+        <div class="endpoint__body">
+          <button class="btn-try" data-method="GET" data-url="/api/integraciones/tercero/">Probar</button>
+        </div>
+      </article>
+    </section>
   </main>
 </div>
 
-<!-- Panel de respuesta flotante -->
 <div class="response-panel" id="responsePanel" hidden>
   <div class="response-panel__header">
     <span class="response-panel__title">Respuesta</span>
     <div style="display:flex;align-items:center;gap:.75rem">
       <span class="response-panel__status" id="responseStatus"></span>
-      <button class="response-panel__close" id="responseClose">✕</button>
+      <button class="response-panel__close" id="responseClose">X</button>
     </div>
   </div>
   <pre class="response-panel__body" id="responseBody"></pre>
@@ -303,13 +202,8 @@ TRANSFERENCIA</pre>
 {% endblock %}
 
 {% block extra_css %}
-{% load static %}
 <style>
-:root {
-  --docs-sidebar-w: 220px;
-}
-
-/* Layout */
+:root { --docs-sidebar-w: 220px; }
 .docs-layout {
   display: grid;
   grid-template-columns: var(--docs-sidebar-w) 1fr;
@@ -318,8 +212,6 @@ TRANSFERENCIA</pre>
   max-width: 1200px;
   margin: 0 auto;
 }
-
-/* Sidebar */
 .docs-sidebar {
   position: sticky;
   top: var(--nav-h);
@@ -343,18 +235,13 @@ TRANSFERENCIA</pre>
   border-radius: var(--radius);
   font-size: .9rem;
   color: var(--c-muted);
-  transition: background .15s, color .15s;
 }
 .docs-nav__link:hover,
 .docs-nav__link.active {
   background: rgba(192,57,43,.08);
   color: var(--c-accent);
 }
-.docs-sidebar__badge { display: flex; gap: .5rem; margin-top: 2rem; }
-
-/* Content */
 .docs-content { padding: 3rem 3.5rem; }
-
 .docs-hero { margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--c-border); }
 .docs-hero__title { font-family: var(--f-display); font-size: 2.5rem; }
 .docs-hero__title span { color: var(--c-accent); }
@@ -366,8 +253,6 @@ TRANSFERENCIA</pre>
   font-size: .85rem;
   font-family: 'Courier New', monospace;
 }
-
-/* Sections */
 .docs-section { margin-bottom: 3.5rem; }
 .docs-section__title {
   font-family: var(--f-display);
@@ -376,8 +261,6 @@ TRANSFERENCIA</pre>
   padding-bottom: .75rem;
   border-bottom: 2px solid var(--c-border);
 }
-
-/* Endpoint cards */
 .endpoint {
   border: 1px solid var(--c-border);
   border-radius: 8px;
@@ -390,7 +273,6 @@ TRANSFERENCIA</pre>
   gap: .75rem;
   padding: .9rem 1.25rem;
   background: var(--c-alt);
-  cursor: pointer;
 }
 .endpoint__url {
   font-family: 'Courier New', monospace;
@@ -399,22 +281,7 @@ TRANSFERENCIA</pre>
   color: var(--c-ink);
 }
 .endpoint__desc { font-size: .85rem; color: var(--c-muted); margin-left: auto; }
-.endpoint__body { padding: 1.5rem; border-top: 1px solid var(--c-border); }
-
-.endpoint__cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1rem; }
-
-/* Code blocks */
-.code-label {
-  font-size: .7rem;
-  font-weight: 700;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--c-muted);
-  margin-bottom: .5rem;
-  display: flex;
-  align-items: center;
-  gap: .5rem;
-}
+.endpoint__body { padding: 1.5rem; border-top: 1px solid var(--c-border); display: flex; flex-direction: column; gap: 1rem; align-items: flex-start; }
 .code-block {
   background: var(--c-ink);
   color: #e8f5e9;
@@ -426,20 +293,8 @@ TRANSFERENCIA</pre>
   overflow-x: auto;
   white-space: pre;
   margin: 0;
+  width: 100%;
 }
-
-/* Status row */
-.status-row {
-  font-size: .8rem;
-  color: var(--c-muted);
-  margin: 1rem 0 .75rem;
-  display: flex;
-  align-items: center;
-  gap: .35rem;
-  flex-wrap: wrap;
-}
-
-/* Badges */
 .badge {
   display: inline-flex;
   align-items: center;
@@ -451,14 +306,8 @@ TRANSFERENCIA</pre>
   padding: .25rem .55rem;
   border-radius: 4px;
 }
-.badge--get    { background: #dbeafe; color: #1d4ed8; }
-.badge--post   { background: #dcfce7; color: #15803d; }
-.badge--green  { background: #dcfce7; color: #15803d; }
-.badge--yellow { background: #fef9c3; color: #a16207; }
-.badge--red    { background: #fee2e2; color: #b91c1c; }
-.badge--sm     { font-size: .55rem; padding: .15rem .4rem; }
-
-/* Try button */
+.badge--get { background: #dbeafe; color: #1d4ed8; }
+.badge--post { background: #dcfce7; color: #15803d; }
 .btn-try {
   background: var(--c-accent);
   color: #fff;
@@ -470,11 +319,8 @@ TRANSFERENCIA</pre>
   font-weight: 600;
   letter-spacing: .06em;
   cursor: pointer;
-  transition: background .15s, transform .1s;
 }
-.btn-try:hover { background: var(--c-accent-h); transform: translateY(-1px); }
-
-/* Response panel */
+.btn-try:hover { background: var(--c-accent-h); }
 .response-panel {
   position: fixed;
   bottom: 1.5rem;
@@ -486,7 +332,6 @@ TRANSFERENCIA</pre>
   box-shadow: 0 12px 48px rgba(0,0,0,.4);
   overflow: hidden;
   z-index: 300;
-  animation: slideUp .25s ease;
 }
 .response-panel[hidden] { display: none; }
 .response-panel__header {
@@ -495,14 +340,12 @@ TRANSFERENCIA</pre>
   align-items: center;
   padding: .75rem 1.25rem;
   background: rgba(255,255,255,.05);
-  border-bottom: 1px solid rgba(255,255,255,.08);
 }
 .response-panel__title { color: rgba(245,242,236,.7); font-size: .8rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
 .response-panel__status { font-size: .8rem; font-weight: 700; }
-.response-panel__status.ok   { color: #4ade80; }
-.response-panel__status.err  { color: #f87171; }
-.response-panel__close { background: none; border: none; color: rgba(245,242,236,.4); cursor: pointer; font-size: 1rem; line-height: 1; }
-.response-panel__close:hover { color: rgba(245,242,236,.9); }
+.response-panel__status.ok { color: #4ade80; }
+.response-panel__status.err { color: #f87171; }
+.response-panel__close { background: none; border: none; color: rgba(245,242,236,.7); cursor: pointer; font-size: 1rem; }
 .response-panel__body {
   padding: 1rem 1.25rem;
   color: #a7f3d0;
@@ -513,14 +356,12 @@ TRANSFERENCIA</pre>
   max-height: 300px;
   margin: 0;
   white-space: pre-wrap;
-  word-break: break-all;
+  word-break: break-word;
 }
-
 @media (max-width: 820px) {
   .docs-layout { grid-template-columns: 1fr; }
   .docs-sidebar { position: static; height: auto; border-right: none; border-bottom: 1px solid var(--c-border); }
   .docs-content { padding: 1.5rem; }
-  .endpoint__cols { grid-template-columns: 1fr; }
   .response-panel { width: calc(100vw - 2rem); right: 1rem; }
 }
 </style>
@@ -528,37 +369,36 @@ TRANSFERENCIA</pre>
 
 {% block extra_js %}
 <script>
-// ── Botones "Probar" ────────────────────────────────────────
 document.querySelectorAll('.btn-try').forEach((btn) => {
   btn.addEventListener('click', async () => {
     const method = btn.dataset.method;
-    const url    = btn.dataset.url;
-    const body   = btn.dataset.body;
+    const url = btn.dataset.url;
+    const body = btn.dataset.body;
 
-    const panel      = document.getElementById('responsePanel');
-    const statusEl   = document.getElementById('responseStatus');
-    const bodyEl     = document.getElementById('responseBody');
+    const panel = document.getElementById('responsePanel');
+    const statusEl = document.getElementById('responseStatus');
+    const bodyEl = document.getElementById('responseBody');
 
-    bodyEl.textContent = 'Cargando…';
+    bodyEl.textContent = 'Cargando...';
     panel.removeAttribute('hidden');
 
     try {
       const opts = { method, headers: { 'Accept': 'application/json' } };
       if (body) {
         opts.headers['Content-Type'] = 'application/json';
-        opts.headers['X-CSRFToken']  = getCsrf();
+        opts.headers['X-CSRFToken'] = getCsrf();
         opts.body = body;
       }
-      const res  = await fetch(url, opts);
+      const res = await fetch(url, opts);
       const data = await res.json();
 
       statusEl.textContent = `${res.status} ${res.statusText}`;
-      statusEl.className   = `response-panel__status ${res.ok ? 'ok' : 'err'}`;
-      bodyEl.textContent   = JSON.stringify(data, null, 2);
+      statusEl.className = `response-panel__status ${res.ok ? 'ok' : 'err'}`;
+      bodyEl.textContent = JSON.stringify(data, null, 2);
     } catch (e) {
       statusEl.textContent = 'Error';
-      statusEl.className   = 'response-panel__status err';
-      bodyEl.textContent   = e.message;
+      statusEl.className = 'response-panel__status err';
+      bodyEl.textContent = e.message;
     }
   });
 });
@@ -570,21 +410,5 @@ document.getElementById('responseClose')?.addEventListener('click', () => {
 function getCsrf() {
   return document.cookie.split('; ').find(r => r.startsWith('csrftoken='))?.split('=')[1] ?? '';
 }
-
-// ── Sidebar activo en scroll ────────────────────────────────
-const sections = document.querySelectorAll('.docs-section');
-const navLinks  = document.querySelectorAll('.docs-nav__link');
-
-const sectionObserver = new IntersectionObserver((entries) => {
-  entries.forEach((e) => {
-    if (e.isIntersecting) {
-      navLinks.forEach((l) => l.classList.remove('active'));
-      const link = document.querySelector(`.docs-nav__link[href="#${e.target.id}"]`);
-      link?.classList.add('active');
-    }
-  });
-}, { threshold: 0.4 });
-
-sections.forEach((s) => sectionObserver.observe(s));
 </script>
 {% endblock %}

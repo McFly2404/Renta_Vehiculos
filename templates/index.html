@@ -1,31 +1,30 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}DriveNow — Renta de Vehículos{% endblock %}
+{% block title %}DriveNow - Renta de Vehiculos{% endblock %}
 
 {% block content %}
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero__copy">
     <p class="hero__eyebrow">Disponible 24 / 7</p>
     <h1 class="hero__headline">
       Conduce<br/>
-      <span class="hero__headline--outline">sin límites</span>
+      <span class="hero__headline--outline">sin limites</span>
     </h1>
     <p class="hero__sub">
       Reserva en minutos. Recoge en cualquier sucursal.
-      Sin filas, sin papeleo. Solo tú y la carretera.
+      Sin filas, sin papeleo. Solo tu y la carretera.
     </p>
     <div class="hero__actions">
       <a href="#reservar" class="btn">Hacer una reserva</a>
-      <a href="#flota"    class="link-arrow">Ver flota</a>
+      <a href="#flota" class="link-arrow">Ver flota</a>
     </div>
   </div>
   <div class="hero__stats">
     <div class="stat">
       <span class="stat__num">50<sup>+</sup></span>
-      <span class="stat__label">Vehículos</span>
+      <span class="stat__label">Vehiculos</span>
     </div>
     <div class="stat__divider"></div>
     <div class="stat">
@@ -35,12 +34,11 @@
     <div class="stat__divider"></div>
     <div class="stat">
       <span class="stat__num">4.9</span>
-      <span class="stat__label">Calificación</span>
+      <span class="stat__label">Calificacion</span>
     </div>
   </div>
 </section>
 
-<!-- RESERVA -->
 <section class="section section--dark" id="reservar">
   <div class="section__inner">
     <div class="section__label" style="color:rgba(245,242,236,.35)">Paso 1</div>
@@ -49,41 +47,38 @@
       <div class="form-layout__info">
         <h2 class="section__title" style="color:var(--c-bg)">Nueva<br/>Reserva</h2>
         <p class="section__body" style="color:rgba(245,242,236,.6)">
-          Selecciona un vehículo disponible de la lista y elige tus fechas.
-          Si no tienes cuenta aún, créala en segundos.
+          Selecciona un vehiculo disponible de la lista y elige tus fechas.
+          Si no tienes cuenta aun, creala en segundos.
         </p>
         <ul class="checklist">
-          <li>Confirmación inmediata</li>
-          <li>Selección por placa</li>
-          <li>Cancelación flexible</li>
+          <li>Confirmacion inmediata</li>
+          <li>Seleccion por placa</li>
+          <li>Cancelacion flexible</li>
         </ul>
-        <!-- Banner de sesión activa -->
+
         <div class="session-banner" id="sessionBanner" hidden>
           <span class="session-banner__dot"></span>
-          Sesión activa como <strong id="sessionBannerName"></strong>
-          &nbsp;·&nbsp; ID: <strong id="sessionBannerId"></strong>
+          Sesion activa como <strong id="sessionBannerName"></strong>
+          <span>-</span> ID: <strong id="sessionBannerId"></strong>
         </div>
-        <!-- Aviso sin sesión -->
+
         <div class="no-session-tip" id="noSessionTip">
-          <span>¿Nuevo aquí?</span>
+          <span>Nuevo aqui?</span>
           <a href="/registro/" class="btn btn--sm" style="margin-top:.5rem">Crear cuenta gratis</a>
         </div>
       </div>
 
       <form class="form-card" id="reservaForm" novalidate>
-
-        <!-- Usuario (pre-llenado si hay sesión) -->
         <div class="field">
           <label for="usuario_id">ID de Usuario</label>
           <input type="number" id="usuario_id" placeholder="Ej. 1" min="1" required />
         </div>
 
-        <!-- Select de placas cargado desde API -->
         <div class="field">
-          <label for="placa_vehiculo">Vehículo disponible</label>
+          <label for="placa_vehiculo">Vehiculo disponible</label>
           <div class="select-wrapper">
             <select id="placa_vehiculo" required>
-              <option value="">Cargando vehículos…</option>
+              <option value="">Cargando vehiculos...</option>
             </select>
           </div>
           <span class="field__hint" id="vehiculoHint"></span>
@@ -111,7 +106,6 @@
   </div>
 </section>
 
-<!-- PAGO -->
 <section class="section section--alt" id="pagar">
   <div class="section__inner">
     <div class="section__label">Paso 2</div>
@@ -120,10 +114,10 @@
         <h2 class="section__title">Registrar<br/>Pago</h2>
         <p class="section__body">
           Una vez creada tu reserva, completa el pago indicando el ID de reserva,
-          el monto y el método de pago.
+          el monto y el metodo de pago.
         </p>
         <ul class="checklist">
-          <li>Múltiples métodos</li>
+          <li>Multiples metodos</li>
           <li>Procesamiento seguro</li>
           <li>Recibo inmediato</li>
         </ul>
@@ -141,13 +135,13 @@
         </div>
         <div class="form-row">
           <div class="field field--full">
-            <label for="pago_metodo">Método de pago</label>
+            <label for="pago_metodo">Metodo de pago</label>
             <div class="select-wrapper">
               <select id="pago_metodo" required>
-                <option value="">Selecciona un método</option>
+                <option value="">Selecciona un metodo</option>
                 <option value="EFECTIVO">Efectivo</option>
-                <option value="TARJETA_CREDITO">Tarjeta de Crédito</option>
-                <option value="TARJETA_DEBITO">Tarjeta de Débito</option>
+                <option value="TARJETA_CREDITO">Tarjeta de Credito</option>
+                <option value="TARJETA_DEBITO">Tarjeta de Debito</option>
                 <option value="TRANSFERENCIA">Transferencia</option>
               </select>
             </div>
@@ -167,15 +161,13 @@
   </div>
 </section>
 
-<!-- FLOTA -->
 <section class="section" id="flota">
   <div class="section__inner">
     <div class="section__label">Flota</div>
     <div class="section__header">
-      <h2 class="section__title">Vehículos<br/>disponibles</h2>
+      <h2 class="section__title">Vehiculos<br/>disponibles</h2>
     </div>
     <div class="vehicles-grid" id="vehiculosGrid">
-      <!-- Placeholder cards mientras carga -->
       <div class="vehicle-card vehicle-card--skeleton"></div>
       <div class="vehicle-card vehicle-card--skeleton"></div>
       <div class="vehicle-card vehicle-card--skeleton"></div>
@@ -183,21 +175,20 @@
   </div>
 </section>
 
-<!-- MODALES -->
 <div class="modal-overlay" id="modalReserva" hidden>
   <div class="modal" role="dialog" aria-modal="true">
-    <div class="modal__icon">✓</div>
-    <h2 class="modal__title">¡Reserva confirmada!</h2>
+    <div class="modal__icon">OK</div>
+    <h2 class="modal__title">Reserva confirmada</h2>
     <p class="modal__body">Tu reserva fue creada. Completa el pago en el Paso 2.</p>
     <dl class="modal__detail" id="modalReservaDetail"></dl>
-    <button class="btn btn--full modal-close-btn" id="btnModalReservaIrPagar">Ir a pagar →</button>
+    <button class="btn btn--full modal-close-btn" id="btnModalReservaIrPagar">Ir a pagar</button>
   </div>
 </div>
 
 <div class="modal-overlay" id="modalPago" hidden>
   <div class="modal" role="dialog" aria-modal="true">
-    <div class="modal__icon">✓</div>
-    <h2 class="modal__title">¡Pago procesado!</h2>
+    <div class="modal__icon">OK</div>
+    <h2 class="modal__title">Pago procesado</h2>
     <p class="modal__body">El pago fue registrado exitosamente.</p>
     <dl class="modal__detail" id="modalPagoDetail"></dl>
     <button class="btn btn--full modal-close-btn">Cerrar</button>

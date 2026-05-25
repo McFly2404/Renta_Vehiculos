@@ -1,10 +1,11 @@
+{% load static i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 <!DOCTYPE html>
-<html lang="es">
+<html lang="{{ LANGUAGE_CODE }}">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{% block title %}DriveNow{% endblock %}</title>
-  {% load static %}
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -17,27 +18,35 @@
     <a href="/" class="nav__logo">Drive<em>Now</em></a>
 
     <ul class="nav__links">
-      <li><a href="/#reservar">Reservar</a></li>
-      <li><a href="/#pagar">Pagar</a></li>
-      <li><a href="/#flota">Flota</a></li>
-      <li><a href="/docs/">API Docs</a></li>
+      <li><a href="/integraciones/">{% trans "Integraciones" %}</a></li>
+      <li><a href="/#reservar">{% trans "Reservar" %}</a></li>
+      <li><a href="/#pagar">{% trans "Pagar" %}</a></li>
+      <li><a href="/#flota">{% trans "Flota" %}</a></li>
+      <li><a href="/docs/">{% trans "API Docs" %}</a></li>
     </ul>
 
-    <!-- Estado de sesión — manipulado por nav.js -->
+    <form action="{% url 'set_language' %}" method="post" style="display:flex;align-items:center;gap:.4rem;">
+      {% csrf_token %}
+      <input name="next" type="hidden" value="{{ request.get_full_path }}">
+      <label for="language-switch" style="font-size:.72rem;color:var(--c-muted);letter-spacing:.08em;">{% trans "Idioma" %}</label>
+      <select id="language-switch" name="language" onchange="this.form.submit()" style="background:transparent;border:1px solid var(--c-border);color:var(--c-ink);padding:.2rem .4rem;border-radius:6px;">
+        <option value="es" {% if LANGUAGE_CODE == "es" %}selected{% endif %}>ES</option>
+        <option value="en" {% if LANGUAGE_CODE == "en" %}selected{% endif %}>EN</option>
+      </select>
+    </form>
+
     <div class="nav__session" id="navSession">
-      <!-- Sin sesión (default) -->
       <div id="navGuest" class="nav__guest">
-        <a href="/login/"    class="nav__link-auth">Iniciar sesión</a>
-        <a href="/registro/" class="btn btn--sm">Crear cuenta</a>
+        <a href="/login/" class="nav__link-auth">{% trans "Iniciar sesion" %}</a>
+        <a href="/registro/" class="btn btn--sm">{% trans "Crear cuenta" %}</a>
       </div>
-      <!-- Con sesión (oculto hasta que JS lo activa) -->
       <div id="navUser" class="nav__user" hidden>
         <div class="nav__user-chip" id="navUserChip">
           <span class="nav__user-avatar" id="navUserAvatar">?</span>
-          <span class="nav__user-name"   id="navUserName">Usuario</span>
-          <span class="nav__user-id"     id="navUserId">#0</span>
+          <span class="nav__user-name" id="navUserName">{% trans "Usuario" %}</span>
+          <span class="nav__user-id" id="navUserId">#0</span>
         </div>
-        <button class="nav__logout" id="btnLogout" title="Cerrar sesión">↩</button>
+        <button class="nav__logout" id="btnLogout" title="{% trans 'Cerrar sesion' %}">X</button>
       </div>
     </div>
   </nav>
@@ -48,20 +57,19 @@
     <div class="footer__inner">
       <div class="footer__brand">
         <span class="nav__logo">Drive<em>Now</em></span>
-        <p>Vehículos premium disponibles en toda la red nacional.</p>
+        <p>{% trans "Vehiculos premium disponibles en toda la red nacional." %}</p>
       </div>
       <div class="footer__links">
-        <span class="footer__heading">Recursos</span>
-        <a href="/docs/">📖 Documentación API</a>
-        <a href="/admin/" target="_blank">⚙️ Admin</a>
+        <span class="footer__heading">{% trans "Recursos" %}</span>
+        <a href="/docs/">{% trans "Documentacion API" %}</a>
+        <a href="/admin/" target="_blank">{% trans "Admin" %}</a>
       </div>
     </div>
     <div class="footer__bottom">
-      <p>© 2026 DriveNow — Arquitectura de Software</p>
+      <p>{% trans "Arquitectura de Software" %} 2026</p>
     </div>
   </footer>
 
-  <!-- session.js debe cargarse antes que cualquier otro JS -->
   <script src="{% static 'js/session.js' %}"></script>
   <script src="{% static 'js/nav.js' %}"></script>
   {% block extra_js %}{% endblock %}

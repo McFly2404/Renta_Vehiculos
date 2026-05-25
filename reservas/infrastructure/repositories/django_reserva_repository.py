@@ -23,6 +23,9 @@ class DjangoVehiculoRepository(IVehiculoRepository):
     def listar_disponibles(self):
         return Vehiculo.objects.select_related("sucursal").filter(disponible=True)
 
+    def listar_no_disponibles(self):
+        return Vehiculo.objects.select_related("sucursal").filter(disponible=False)
+
     def listar_todos(self):
         return Vehiculo.objects.select_related("sucursal").all()
 

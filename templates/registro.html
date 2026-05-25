@@ -1,35 +1,32 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}DriveNow — Crear cuenta{% endblock %}
+{% block title %}DriveNow - Crear cuenta{% endblock %}
 
 {% block content %}
 <div class="auth-page">
   <div class="auth-card">
-
-    <a href="/" class="auth-card__back link-arrow" style="flex-direction:row-reverse;gap:.35rem">
-      <span style="transform:scaleX(-1);display:inline-block">→</span> Volver al inicio
-    </a>
+    <a href="/" class="auth-card__back">Volver al inicio</a>
 
     <div class="auth-card__logo">Drive<em>Now</em></div>
     <h1 class="auth-card__title">Crea tu cuenta</h1>
-    <p class="auth-card__sub">Regístrate y empieza a reservar en minutos.</p>
+    <p class="auth-card__sub">Registrate y empieza a reservar en minutos.</p>
 
     <form id="registroForm" novalidate>
       <div class="field">
         <label for="reg_nombre">Nombre completo</label>
-        <input type="text" id="reg_nombre" placeholder="Ana García" required autocomplete="name" />
+        <input type="text" id="reg_nombre" placeholder="Ana Garcia" required autocomplete="name" />
       </div>
       <div class="field">
-        <label for="reg_cedula">Cédula</label>
+        <label for="reg_cedula">Cedula</label>
         <input type="text" id="reg_cedula" placeholder="1234567890" required />
       </div>
       <div class="field">
-        <label for="reg_correo">Correo electrónico</label>
+        <label for="reg_correo">Correo electronico</label>
         <input type="email" id="reg_correo" placeholder="ana@email.com" required autocomplete="email" />
       </div>
       <div class="field">
-        <label for="reg_licencia">N.° de licencia</label>
+        <label for="reg_licencia">Numero de licencia</label>
         <input type="text" id="reg_licencia" placeholder="LIC-00123" required />
       </div>
 
@@ -42,8 +39,8 @@
     </form>
 
     <p class="auth-card__footer">
-      ¿Ya tienes cuenta?
-      <a href="/" id="linkIniciarSesion" style="color:var(--c-accent);font-weight:600">Iniciar sesión</a>
+      Ya tienes cuenta?
+      <a href="/" id="linkIniciarSesion" style="color:var(--c-accent);font-weight:600">Iniciar sesion</a>
     </p>
   </div>
 </div>

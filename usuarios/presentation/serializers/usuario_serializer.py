@@ -1,27 +1,29 @@
-"""Serializers de presentación para Usuarios. Sin lógica de negocio."""
+"""Serializers de presentacion para Usuarios."""
+from django.utils.translation import gettext_lazy as _
 from rest_framework import serializers
+
 from usuarios.models import Usuario
 
 
 class UsuarioInputSerializer(serializers.Serializer):
-    nombre   = serializers.CharField(max_length=100)
-    cedula   = serializers.CharField(max_length=20)
-    correo   = serializers.EmailField()
+    nombre = serializers.CharField(max_length=100)
+    cedula = serializers.CharField(max_length=20)
+    correo = serializers.EmailField()
     licencia = serializers.CharField(max_length=50)
 
     def validate_nombre(self, value: str) -> str:
         if len(value.strip()) < 2:
-            raise serializers.ValidationError("Mínimo 2 caracteres.")
+            raise serializers.ValidationError(_("Minimo 2 caracteres."))
         return value.strip()
 
     def validate_cedula(self, value: str) -> str:
         cleaned = value.strip()
         if not cleaned.isalnum():
-            raise serializers.ValidationError("Solo letras y números.")
+            raise serializers.ValidationError(_("Solo letras y numeros."))
         return cleaned
 
 
 class UsuarioOutputSerializer(serializers.ModelSerializer):
     class Meta:
-        model  = Usuario
+        model = Usuario
         fields = ["id", "nombre", "cedula", "correo", "licencia"]

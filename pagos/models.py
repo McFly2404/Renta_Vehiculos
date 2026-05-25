@@ -1,20 +1,21 @@
-from django.db import models
 from django.core.exceptions import ValidationError
+from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 
 class Pago(models.Model):
     ESTADO_CHOICES = [
-        ("PENDIENTE", "Pendiente"),
-        ("APROBADO", "Aprobado"),
-        ("RECHAZADO", "Rechazado"),
-        ("REEMBOLSADO", "Reembolsado"),
+        ("PENDIENTE", _("Pendiente")),
+        ("APROBADO", _("Aprobado")),
+        ("RECHAZADO", _("Rechazado")),
+        ("REEMBOLSADO", _("Reembolsado")),
     ]
 
     METODO_CHOICES = [
-        ("EFECTIVO", "Efectivo"),
-        ("TARJETA_CREDITO", "Tarjeta de Crédito"),
-        ("TARJETA_DEBITO", "Tarjeta de Débito"),
-        ("TRANSFERENCIA", "Transferencia"),
+        ("EFECTIVO", _("Efectivo")),
+        ("TARJETA_CREDITO", _("Tarjeta de Credito")),
+        ("TARJETA_DEBITO", _("Tarjeta de Debito")),
+        ("TRANSFERENCIA", _("Transferencia")),
     ]
 
     reserva = models.OneToOneField(
@@ -31,8 +32,8 @@ class Pago(models.Model):
 
     def clean(self):
         if self.monto is not None and self.monto <= 0:
-            raise ValidationError({"monto": "El monto del pago debe ser mayor a 0."})
+            raise ValidationError({"monto": _("El monto del pago debe ser mayor a 0.")})
 
     class Meta:
-        verbose_name = "Pago"
-        verbose_name_plural = "Pagos"
+        verbose_name = _("Pago")
+        verbose_name_plural = _("Pagos")

@@ -1,18 +1,15 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}DriveNow — Iniciar sesión{% endblock %}
+{% block title %}DriveNow - Iniciar sesion{% endblock %}
 
 {% block content %}
 <div class="auth-page">
   <div class="auth-card">
-
-    <a href="/" class="auth-card__back link-arrow" style="flex-direction:row-reverse;gap:.35rem">
-      <span style="transform:scaleX(-1);display:inline-block">→</span> Volver al inicio
-    </a>
+    <a href="/" class="auth-card__back">Volver al inicio</a>
 
     <div class="auth-card__logo">Drive<em>Now</em></div>
-    <h1 class="auth-card__title">Iniciar sesión</h1>
+    <h1 class="auth-card__title">Iniciar sesion</h1>
     <p class="auth-card__sub">Ingresa tu ID de usuario para continuar.</p>
 
     <form id="loginForm" novalidate>
@@ -21,7 +18,7 @@
         <input type="number" id="login_id" placeholder="Ej. 1" min="1" required autofocus />
       </div>
 
-      <div class="alert alert--error"   id="alertLogin" hidden></div>
+      <div class="alert alert--error" id="alertLogin" hidden></div>
       <div class="alert alert--success" id="alertSuccess" hidden></div>
 
       <button type="submit" class="btn btn--full" id="btnLogin" style="margin-top:.5rem">
@@ -31,7 +28,7 @@
     </form>
 
     <p class="auth-card__footer">
-      ¿No tienes cuenta?
+      No tienes cuenta?
       <a href="/registro/" style="color:var(--c-accent);font-weight:600">Crear cuenta</a>
     </p>
   </div>

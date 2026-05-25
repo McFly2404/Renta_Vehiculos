@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 
 class Usuario(models.Model):
@@ -11,5 +12,5 @@ class Usuario(models.Model):
         return f"{self.nombre} ({self.cedula})"
 
     class Meta:
-        verbose_name        = "Usuario"
-        verbose_name_plural = "Usuarios"
+        verbose_name        = _("Usuario")
+        verbose_name_plural = _("Usuarios")

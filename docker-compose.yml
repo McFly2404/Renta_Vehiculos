@@ -1,69 +1,94 @@
-version: "3.9"
-
-# ── DriveNow — Arquitectura Híbrida (Strangler Pattern) ──────────────────────
-#
-#   nginx          → Enruta el tráfico           (puerto 80)
-#   django_web     → Monolito legacy             (/api/ y HTML)
-#   flask_pagos    → Microservicio de pagos      (/api/v2/pagos/)
-#   db             → PostgreSQL 15 compartida
-# ─────────────────────────────────────────────────────────────────────────────
-
 services:
-
-  # ── Base de datos ────────────────────────────────────────────────────────
   db:
     image: postgres:15-alpine
     container_name: drivenow_db
     restart: unless-stopped
     environment:
-      POSTGRES_DB:       drivenow
-      POSTGRES_USER:     drivenow
+      POSTGRES_DB: drivenow
+      POSTGRES_USER: drivenow
       POSTGRES_PASSWORD: drivenow
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test:     ["CMD-SHELL", "pg_isready -U drivenow -d drivenow"]
+      test: ["CMD-SHELL", "pg_isready -U drivenow -d drivenow"]
       interval: 5s
-      timeout:  5s
-      retries:  10
+      timeout: 5s
+      retries: 10
 
-  # ── Monolito Django ──────────────────────────────────────────────────────
+  redis:
+    image: redis:7-alpine
+    container_name: drivenow_redis
+    restart: unless-stopped
+    command: redis-server --save 60 1 --loglevel warning
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
   django_web:
     build: .
     container_name: drivenow_django
     restart: unless-stopped
     command: >
       sh -c "python manage.py migrate --noinput &&
+             python manage.py compilemessages &&
+             python manage.py seed_demo_data &&
              python manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/app
     environment:
-      DB_HOST:     db
-      DB_PORT:     "5432"
-      DB_NAME:     drivenow
-      DB_USER:     drivenow
+      DB_HOST: db
+      DB_PORT: "5432"
+      DB_NAME: drivenow
+      DB_USER: drivenow
       DB_PASSWORD: drivenow
-      DJANGO_ENV:  development
+      DJANGO_ENV: development
+      CELERY_BROKER_URL: redis://redis:6379/0
+      CELERY_RESULT_BACKEND: redis://redis:6379/0
+      WEATHER_API_URL: https://api.open-meteo.com/v1/forecast
     depends_on:
       db:
         condition: service_healthy
+      redis:
+        condition: service_healthy
 
-  # ── Microservicio Flask — Pagos (Strangler) ──────────────────────────────
+  celery_worker:
+    build: .
+    container_name: drivenow_celery
+    restart: unless-stopped
+    command: celery -A DriveNow worker -l info
+    volumes:
+      - .:/app
+    environment:
+      DB_HOST: db
+      DB_PORT: "5432"
+      DB_NAME: drivenow
+      DB_USER: drivenow
+      DB_PASSWORD: drivenow
+      CELERY_BROKER_URL: redis://redis:6379/0
+      CELERY_RESULT_BACKEND: redis://redis:6379/0
+      WEATHER_API_URL: https://api.open-meteo.com/v1/forecast
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
   flask_pagos:
     build: ./flask_pagos
     container_name: drivenow_flask_pagos
     restart: unless-stopped
     environment:
-      DB_HOST:     db
-      DB_PORT:     "5432"
-      DB_NAME:     drivenow
-      DB_USER:     drivenow
+      DB_HOST: db
+      DB_PORT: "5432"
+      DB_NAME: drivenow
+      DB_USER: drivenow
       DB_PASSWORD: drivenow
     depends_on:
       db:
         condition: service_healthy
 
-  # ── Nginx — Proxy / Orquestador de tráfico ──────────────────────────────
   nginx:
     image: nginx:1.25-alpine
     container_name: drivenow_nginx

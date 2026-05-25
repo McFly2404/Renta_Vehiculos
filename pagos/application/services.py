@@ -12,6 +12,7 @@ from pagos.domain.exceptions import (
     PagoNoEncontradoError,
 )
 from reservas.domain.repositories import IReservaRepository
+from pagos.tasks import notificar_pago_confirmado
 
 
 class CrearPagoService:
@@ -24,8 +25,8 @@ class CrearPagoService:
         self,
         reserva_repo: IReservaRepository,
         pago_repo:    IPagoRepository,
-        notificador,
         pasarela:     IPasarelaPago,
+        notificador=None,
     ):
         self._reserva_repo = reserva_repo
         self._pago_repo    = pago_repo
@@ -61,9 +62,16 @@ class CrearPagoService:
         if resultado["aprobado"]:
             reserva.estado = "CONFIRMADA"
             reserva.save(update_fields=["estado"])
-            self._notificador.enviar_confirmacion(pago)
+            self._notificar_pago(pago)
 
         return pago
+
+    def _notificar_pago(self, pago) -> None:
+        try:
+            notificar_pago_confirmado.delay(pago.id)
+        except Exception:
+            if self._notificador:
+                self._notificador.enviar_confirmacion(pago)
 
 
 class ObtenerPagoService:

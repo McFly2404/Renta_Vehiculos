@@ -25,6 +25,10 @@ class IVehiculoRepository(ABC):
         ...
 
     @abstractmethod
+    def listar_no_disponibles(self):
+        ...
+
+    @abstractmethod
     def listar_todos(self):
         ...
 
