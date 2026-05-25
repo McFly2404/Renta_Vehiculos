@@ -192,7 +192,7 @@ h1, h2, h3 { font-family: var(--f-display); line-height: 1.1; font-weight: 900; 
 }
 .vehicle-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
 .vehicle-card__icon { height: 160px; display: flex; align-items: center; justify-content: center; font-size: 4.5rem; background: var(--c-bg); }
-.vehicle-card__icon--text { font-family: var(--f-body); font-size: 1.15rem; font-weight: 800; letter-spacing: .12em; color: var(--c-accent); }
+.vehicle-card__icon--text { font-family: var(--f-body); font-size: 3.6rem; font-weight: 800; letter-spacing: 0; line-height: 1; color: var(--c-accent); }
 .vehicle-card__body { padding: 1.25rem 1.5rem 1.5rem; }
 .vehicle-card__cat  { font-size: .7rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--c-muted); }
 .vehicle-card__name { font-family: var(--f-display); font-size: 1.2rem; font-weight: 700; margin: .3rem 0 .75rem; }

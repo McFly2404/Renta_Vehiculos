@@ -52,11 +52,11 @@ const CATEGORY_LABELS = {
 };
 
 const CATEGORY_TAGS = {
-  SEDAN: 'AUTO',
-  SUV: 'SUV',
-  CAMIONETA: 'PICKUP',
-  DEPORTIVO: 'SPORT',
-  FURGON: 'VAN',
+  SEDAN: '🚗',
+  SUV: '🚙',
+  CAMIONETA: '🚚',
+  DEPORTIVO: '🏎️',
+  FURGON: '🚐',
 };
 
 function categoryLabel(category) {
