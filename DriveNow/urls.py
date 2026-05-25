@@ -9,7 +9,7 @@ from reservas.views import (
 )
 
 urlpatterns = [
-    # Páginas HTML
+    # HTML pages
     path("",          LandingView.as_view(),  name="landing"),
     path("registro/", RegistroView.as_view(), name="registro"),
     path("login/",    LoginView.as_view(),    name="login"),

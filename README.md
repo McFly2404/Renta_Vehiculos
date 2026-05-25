@@ -9,6 +9,8 @@ Ecosistema hibrido para renta de vehiculos con:
 
 ## 1. Arquitectura objetivo
 
+Diagrama y notas de sustentacion: [`docs/arquitectura.md`](docs/arquitectura.md)
+
 Servicios en `docker-compose.yml`:
 - `nginx`: punto de entrada y ruteo
 - `django_web`: monolito legacy

@@ -58,3 +58,392 @@ msgstr "Espanol"
 
 msgid "English"
 msgstr "Ingles"
+
+msgid "Activo"
+msgstr "Activo"
+
+msgid "Servicio Aliado"
+msgstr "Servicio Aliado"
+
+msgid "API de Terceros (Adapter)"
+msgstr "API de Terceros (Adapter)"
+
+msgid "Disponible"
+msgstr "Disponible"
+
+msgid "Conectado"
+msgstr "Conectado"
+
+msgid "No se pudo conectar al servidor."
+msgstr "No se pudo conectar al servidor."
+
+msgid "dia"
+msgstr "dia"
+
+msgid "Error"
+msgstr "Error"
+
+msgid "Error al cargar vehiculos"
+msgstr "Error al cargar vehiculos"
+
+msgid "Humedad"
+msgstr "Humedad"
+
+msgid "No se pudo cargar el estado de integraciones."
+msgstr "No se pudo cargar el estado de integraciones."
+
+msgid "Cargando..."
+msgstr "Cargando..."
+
+msgid "Metodo"
+msgstr "Metodo"
+
+msgid "Modelo"
+msgstr "Modelo"
+
+msgid "Monto"
+msgstr "Monto"
+
+msgid "Sin datos"
+msgstr "Sin datos"
+
+msgid "No hay vehiculos disponibles"
+msgstr "No hay vehiculos disponibles"
+
+msgid "No hay vehiculos registrados aun."
+msgstr "No hay vehiculos registrados aun."
+
+msgid "No configurado"
+msgstr "No configurado"
+
+msgid "Ocupado"
+msgstr "Ocupado"
+
+msgid "Servicio a Proveer"
+msgstr "Servicio a Proveer"
+
+msgid "Pagos"
+msgstr "Pagos"
+
+msgid "Fecha"
+msgstr "Fecha"
+
+msgid "ID Pago"
+msgstr "ID Pago"
+
+msgid "No se pudo registrar el pago."
+msgstr "No se pudo registrar el pago."
+
+msgid "Pendiente"
+msgstr "Pendiente"
+
+msgid "Placa"
+msgstr "Placa"
+
+msgid "Reserva"
+msgstr "Reserva"
+
+msgid "Fecha fin"
+msgstr "Fecha fin"
+
+msgid "ID Reserva"
+msgstr "ID Reserva"
+
+msgid "Fecha inicio"
+msgstr "Fecha inicio"
+
+msgid "Reservas"
+msgstr "Reservas"
+
+msgid "Respuesta"
+msgstr "Respuesta"
+
+msgid "Seleccionar"
+msgstr "Seleccionar"
+
+msgid "Selecciona un vehiculo"
+msgstr "Selecciona un vehiculo"
+
+msgid "Estado"
+msgstr "Estado"
+
+msgid "Resumen del Sistema"
+msgstr "Resumen del Sistema"
+
+msgid "Temp"
+msgstr "Temp"
+
+msgid "no encontrado. Verifica tu ID."
+msgstr "no encontrado. Verifica tu ID."
+
+msgid "Usuarios"
+msgstr "Usuarios"
+
+msgid "Vehiculo"
+msgstr "Vehiculo"
+
+msgid "Vehiculos"
+msgstr "Vehiculos"
+
+msgid "Bienvenido"
+msgstr "Bienvenido"
+
+msgid "Redirigiendo..."
+msgstr "Redirigiendo..."
+
+msgid "Viento"
+msgstr "Viento"
+
+msgid "Renta de Vehiculos"
+msgstr "Renta de Vehiculos"
+
+msgid "Disponible 24 / 7"
+msgstr "Disponible 24 / 7"
+
+msgid "Conduce"
+msgstr "Conduce"
+
+msgid "sin limites"
+msgstr "sin limites"
+
+msgid "Reserva en minutos. Recoge en cualquier sucursal. Sin filas, sin papeleo. Solo tu y la carretera."
+msgstr "Reserva en minutos. Recoge en cualquier sucursal. Sin filas, sin papeleo. Solo tu y la carretera."
+
+msgid "Hacer una reserva"
+msgstr "Hacer una reserva"
+
+msgid "Ver flota"
+msgstr "Ver flota"
+
+msgid "Sucursales"
+msgstr "Sucursales"
+
+msgid "Calificacion"
+msgstr "Calificacion"
+
+msgid "Paso 1"
+msgstr "Paso 1"
+
+msgid "Nueva"
+msgstr "Nueva"
+
+msgid "Selecciona un vehiculo disponible de la lista y elige tus fechas. Si no tienes cuenta aun, creala en segundos."
+msgstr "Selecciona un vehiculo disponible de la lista y elige tus fechas. Si no tienes cuenta aun, creala en segundos."
+
+msgid "Confirmacion inmediata"
+msgstr "Confirmacion inmediata"
+
+msgid "Seleccion por placa"
+msgstr "Seleccion por placa"
+
+msgid "Cancelacion flexible"
+msgstr "Cancelacion flexible"
+
+msgid "Sesion activa como"
+msgstr "Sesion activa como"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Nuevo aqui?"
+msgstr "Nuevo aqui?"
+
+msgid "Crear cuenta gratis"
+msgstr "Crear cuenta gratis"
+
+msgid "ID de Usuario"
+msgstr "ID de Usuario"
+
+msgid "Ej. 1"
+msgstr "Ej. 1"
+
+msgid "Vehiculo disponible"
+msgstr "Vehiculo disponible"
+
+msgid "Cargando vehiculos..."
+msgstr "Cargando vehiculos..."
+
+msgid "Fecha de inicio"
+msgstr "Fecha de inicio"
+
+msgid "Fecha de fin"
+msgstr "Fecha de fin"
+
+msgid "Confirmar reserva"
+msgstr "Confirmar reserva"
+
+msgid "Paso 2"
+msgstr "Paso 2"
+
+msgid "Registrar"
+msgstr "Registrar"
+
+msgid "Pago"
+msgstr "Pago"
+
+msgid "Una vez creada tu reserva, completa el pago indicando el ID de reserva, el monto y el metodo de pago."
+msgstr "Una vez creada tu reserva, completa el pago indicando el ID de reserva, el monto y el metodo de pago."
+
+msgid "Multiples metodos"
+msgstr "Multiples metodos"
+
+msgid "Procesamiento seguro"
+msgstr "Procesamiento seguro"
+
+msgid "Recibo inmediato"
+msgstr "Recibo inmediato"
+
+msgid "ID de Reserva"
+msgstr "ID de Reserva"
+
+msgid "Ej. 5"
+msgstr "Ej. 5"
+
+msgid "Monto ($)"
+msgstr "Monto ($)"
+
+msgid "Ej. 250000"
+msgstr "Ej. 250000"
+
+msgid "Metodo de pago"
+msgstr "Metodo de pago"
+
+msgid "Selecciona un metodo"
+msgstr "Selecciona un metodo"
+
+msgid "Efectivo"
+msgstr "Efectivo"
+
+msgid "Tarjeta de Credito"
+msgstr "Tarjeta de Credito"
+
+msgid "Tarjeta de Debito"
+msgstr "Tarjeta de Debito"
+
+msgid "Transferencia"
+msgstr "Transferencia"
+
+msgid "Fecha de pago"
+msgstr "Fecha de pago"
+
+msgid "Procesar pago"
+msgstr "Procesar pago"
+
+
+msgid "Reserva confirmada"
+msgstr "Reserva confirmada"
+
+msgid "Tu reserva fue creada. Completa el pago en el Paso 2."
+msgstr "Tu reserva fue creada. Completa el pago en el Paso 2."
+
+msgid "Ir a pagar"
+msgstr "Ir a pagar"
+
+msgid "Pago procesado"
+msgstr "Pago procesado"
+
+msgid "El pago fue registrado exitosamente."
+msgstr "El pago fue registrado exitosamente."
+
+msgid "Cerrar"
+msgstr "Cerrar"
+
+msgid "Volver al inicio"
+msgstr "Volver al inicio"
+
+msgid "Ingresa tu ID de usuario para continuar."
+msgstr "Ingresa tu ID de usuario para continuar."
+
+msgid "Entrar"
+msgstr "Entrar"
+
+msgid "No tienes cuenta?"
+msgstr "No tienes cuenta?"
+
+msgid "Crea tu cuenta"
+msgstr "Crea tu cuenta"
+
+msgid "Registrate y empieza a reservar en minutos."
+msgstr "Registrate y empieza a reservar en minutos."
+
+msgid "Nombre completo"
+msgstr "Nombre completo"
+
+msgid "Cedula"
+msgstr "Cedula"
+
+msgid "Correo electronico"
+msgstr "Correo electronico"
+
+msgid "Numero de licencia"
+msgstr "Numero de licencia"
+
+msgid "Ya tienes cuenta?"
+msgstr "Ya tienes cuenta?"
+
+msgid "del Ecosistema"
+msgstr "del Ecosistema"
+
+msgid "Servicios"
+msgstr "Servicios"
+
+msgid "conectados"
+msgstr "conectados"
+
+msgid "Panel operativo para validar el servicio propio, el consumo del aliado y la API externa por Adapter."
+msgstr "Panel operativo para validar el servicio propio, el consumo del aliado y la API externa por Adapter."
+
+msgid "Endpoints de evidencia"
+msgstr "Endpoints de evidencia"
+
+msgid "URL base"
+msgstr "URL base"
+
+msgid "Registrar usuario"
+msgstr "Registrar usuario"
+
+msgid "Probar"
+msgstr "Probar"
+
+msgid "Listar usuarios"
+msgstr "Listar usuarios"
+
+msgid "Detalle de usuario"
+msgstr "Detalle de usuario"
+
+msgid "Listar flota"
+msgstr "Listar flota"
+
+msgid "Todos"
+msgstr "Todos"
+
+msgid "Disponibles"
+msgstr "Disponibles"
+
+msgid "Crear reserva"
+msgstr "Crear reserva"
+
+msgid "Listar reservas"
+msgstr "Listar reservas"
+
+msgid "Cancelar reserva"
+msgstr "Cancelar reserva"
+
+msgid "Registrar pago"
+msgstr "Registrar pago"
+
+msgid "Microservicio Flask"
+msgstr "Microservicio Flask"
+
+msgid "Servicio propio JSON"
+msgstr "Servicio propio JSON"
+
+
+msgid "API externa por Adapter"
+msgstr "API externa por Adapter"
+
+msgid "solo vehiculos disponibles"
+msgstr "solo vehiculos disponibles"
+
+msgid "solo vehiculos ocupados"
+msgstr "solo vehiculos ocupados"

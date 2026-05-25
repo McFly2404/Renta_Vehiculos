@@ -18,11 +18,11 @@
     <a href="/" class="nav__logo">Drive<em>Now</em></a>
 
     <ul class="nav__links">
-      <li><a href="/integraciones/">{% trans "Integraciones" %}</a></li>
       <li><a href="/#reservar">{% trans "Reservar" %}</a></li>
       <li><a href="/#pagar">{% trans "Pagar" %}</a></li>
       <li><a href="/#flota">{% trans "Flota" %}</a></li>
       <li><a href="/docs/">{% trans "API Docs" %}</a></li>
+      <li><a href="/integraciones/">{% trans "Integraciones" %}</a></li>
     </ul>
 
     <form action="{% url 'set_language' %}" method="post" style="display:flex;align-items:center;gap:.4rem;">
@@ -70,6 +70,56 @@
     </div>
   </footer>
 
+  <script>
+    window.DRIVENOW_I18N = {
+      active: "{% trans 'Activo' %}",
+      allyService: "{% trans 'Servicio Aliado' %}",
+      apiThirdPartyAdapter: "{% trans 'API de Terceros (Adapter)' %}",
+      available: "{% trans 'Disponible' %}",
+      connected: "{% trans 'Conectado' %}",
+      connectingError: "{% trans 'No se pudo conectar al servidor.' %}",
+      day: "{% trans 'dia' %}",
+      error: "{% trans 'Error' %}",
+      fleetLoadError: "{% trans 'Error al cargar vehiculos' %}",
+      humidity: "{% trans 'Humedad' %}",
+      integrationsLoadError: "{% trans 'No se pudo cargar el estado de integraciones.' %}",
+      loading: "{% trans 'Cargando...' %}",
+      method: "{% trans 'Metodo' %}",
+      model: "{% trans 'Modelo' %}",
+      amount: "{% trans 'Monto' %}",
+      noData: "{% trans 'Sin datos' %}",
+      noVehiclesAvailable: "{% trans 'No hay vehiculos disponibles' %}",
+      noVehiclesRegistered: "{% trans 'No hay vehiculos registrados aun.' %}",
+      notConfigured: "{% trans 'No configurado' %}",
+      occupied: "{% trans 'Ocupado' %}",
+      ownService: "{% trans 'Servicio a Proveer' %}",
+      payments: "{% trans 'Pagos' %}",
+      paymentDate: "{% trans 'Fecha' %}",
+      paymentId: "{% trans 'ID Pago' %}",
+      paymentRegisterError: "{% trans 'No se pudo registrar el pago.' %}",
+      pending: "{% trans 'Pendiente' %}",
+      plate: "{% trans 'Placa' %}",
+      reservation: "{% trans 'Reserva' %}",
+      reservationEnd: "{% trans 'Fecha fin' %}",
+      reservationId: "{% trans 'ID Reserva' %}",
+      reservationStart: "{% trans 'Fecha inicio' %}",
+      reservations: "{% trans 'Reservas' %}",
+      response: "{% trans 'Respuesta' %}",
+      select: "{% trans 'Seleccionar' %}",
+      selectVehicle: "{% trans 'Selecciona un vehiculo' %}",
+      status: "{% trans 'Estado' %}",
+      systemSummary: "{% trans 'Resumen del Sistema' %}",
+      temperature: "{% trans 'Temp' %}",
+      user: "{% trans 'Usuario' %}",
+      userNotFoundSuffix: "{% trans 'no encontrado. Verifica tu ID.' %}",
+      users: "{% trans 'Usuarios' %}",
+      vehicle: "{% trans 'Vehiculo' %}",
+      vehicles: "{% trans 'Vehiculos' %}",
+      welcome: "{% trans 'Bienvenido' %}",
+      redirecting: "{% trans 'Redirigiendo...' %}",
+      wind: "{% trans 'Viento' %}"
+    };
+  </script>
   <script src="{% static 'js/session.js' %}"></script>
   <script src="{% static 'js/nav.js' %}"></script>
   {% block extra_js %}{% endblock %}

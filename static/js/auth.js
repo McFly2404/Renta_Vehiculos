@@ -17,6 +17,10 @@ function clearAlert(el) {
   el.setAttribute('hidden', '');
 }
 
+function t(key, fallback) {
+  return window.DRIVENOW_I18N?.[key] ?? fallback;
+}
+
 const registroForm = document.getElementById('registroForm');
 const alertRegistro = document.getElementById('alertRegistro');
 const btnRegistro = document.getElementById('btnRegistro');
@@ -50,7 +54,7 @@ registroForm?.addEventListener('submit', async (e) => {
       showAlert(alertRegistro, msg);
     }
   } catch {
-    showAlert(alertRegistro, 'No se pudo conectar al servidor.');
+    showAlert(alertRegistro, t('connectingError', 'No se pudo conectar al servidor.'));
   } finally {
     setLoading(btnRegistro, false);
   }
@@ -75,13 +79,13 @@ loginForm?.addEventListener('submit', async (e) => {
 
     if (res.status === 200) {
       Session.set({ id: data.id, nombre: data.nombre, cedula: data.cedula });
-      showAlert(alertSuccess, `Bienvenido, ${data.nombre}. Redirigiendo...`, 'success');
+      showAlert(alertSuccess, `${t('welcome', 'Bienvenido')}, ${data.nombre}. ${t('redirecting', 'Redirigiendo...')}`, 'success');
       setTimeout(() => { window.location.href = '/'; }, 900);
     } else {
-      showAlert(alertLogin, `Usuario #${id} no encontrado. Verifica tu ID.`);
+      showAlert(alertLogin, `${t('user', 'Usuario')} #${id} ${t('userNotFoundSuffix', 'no encontrado. Verifica tu ID.')}`);
     }
   } catch {
-    showAlert(alertLogin, 'No se pudo conectar al servidor.');
+    showAlert(alertLogin, t('connectingError', 'No se pudo conectar al servidor.'));
   } finally {
     setLoading(btnLogin, false);
   }

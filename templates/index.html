@@ -1,84 +1,82 @@
 {% extends "base.html" %}
-{% load static %}
+{% load static i18n %}
 
-{% block title %}DriveNow - Renta de Vehiculos{% endblock %}
+{% block title %}DriveNow - {% trans "Renta de Vehiculos" %}{% endblock %}
 
 {% block content %}
 
 <section class="hero">
   <div class="hero__copy">
-    <p class="hero__eyebrow">Disponible 24 / 7</p>
+    <p class="hero__eyebrow">{% trans "Disponible 24 / 7" %}</p>
     <h1 class="hero__headline">
-      Conduce<br/>
-      <span class="hero__headline--outline">sin limites</span>
+      {% trans "Conduce" %}<br/>
+      <span class="hero__headline--outline">{% trans "sin limites" %}</span>
     </h1>
     <p class="hero__sub">
-      Reserva en minutos. Recoge en cualquier sucursal.
-      Sin filas, sin papeleo. Solo tu y la carretera.
+      {% blocktrans %}Reserva en minutos. Recoge en cualquier sucursal. Sin filas, sin papeleo. Solo tu y la carretera.{% endblocktrans %}
     </p>
     <div class="hero__actions">
-      <a href="#reservar" class="btn">Hacer una reserva</a>
-      <a href="#flota" class="link-arrow">Ver flota</a>
+      <a href="#reservar" class="btn">{% trans "Hacer una reserva" %}</a>
+      <a href="#flota" class="link-arrow">{% trans "Ver flota" %}</a>
     </div>
   </div>
   <div class="hero__stats">
     <div class="stat">
       <span class="stat__num">50<sup>+</sup></span>
-      <span class="stat__label">Vehiculos</span>
+      <span class="stat__label">{% trans "Vehiculos" %}</span>
     </div>
     <div class="stat__divider"></div>
     <div class="stat">
       <span class="stat__num">12</span>
-      <span class="stat__label">Sucursales</span>
+      <span class="stat__label">{% trans "Sucursales" %}</span>
     </div>
     <div class="stat__divider"></div>
     <div class="stat">
       <span class="stat__num">4.9</span>
-      <span class="stat__label">Calificacion</span>
+      <span class="stat__label">{% trans "Calificacion" %}</span>
     </div>
   </div>
 </section>
 
 <section class="section section--dark" id="reservar">
   <div class="section__inner">
-    <div class="section__label" style="color:rgba(245,242,236,.35)">Paso 1</div>
+    <div class="section__label" style="color:rgba(245,242,236,.35)">{% trans "Paso 1" %}</div>
     <div class="form-layout">
 
       <div class="form-layout__info">
-        <h2 class="section__title" style="color:var(--c-bg)">Nueva<br/>Reserva</h2>
+        <h2 class="section__title" style="color:var(--c-bg)">{% trans "Nueva" %}<br/>{% trans "Reserva" %}</h2>
         <p class="section__body" style="color:rgba(245,242,236,.6)">
-          Selecciona un vehiculo disponible de la lista y elige tus fechas.
-          Si no tienes cuenta aun, creala en segundos.
+          {% blocktrans %}Selecciona un vehiculo disponible de la lista y elige tus fechas. Si no tienes cuenta aun, creala en segundos.{% endblocktrans %}
         </p>
         <ul class="checklist">
-          <li>Confirmacion inmediata</li>
-          <li>Seleccion por placa</li>
-          <li>Cancelacion flexible</li>
+          <li>{% trans "Confirmacion inmediata" %}</li>
+          <li>{% trans "Seleccion por placa" %}</li>
+          <li>{% trans "Cancelacion flexible" %}</li>
         </ul>
 
         <div class="session-banner" id="sessionBanner" hidden>
           <span class="session-banner__dot"></span>
-          Sesion activa como <strong id="sessionBannerName"></strong>
-          <span>-</span> ID: <strong id="sessionBannerId"></strong>
+          {% trans "Sesion activa como" %} <strong id="sessionBannerName"></strong>
+          <span>-</span> {% trans "ID" %}: <strong id="sessionBannerId"></strong>
         </div>
 
         <div class="no-session-tip" id="noSessionTip">
-          <span>Nuevo aqui?</span>
-          <a href="/registro/" class="btn btn--sm" style="margin-top:.5rem">Crear cuenta gratis</a>
+          <span>{% trans "Nuevo aqui?" %}</span>
+          <a href="/registro/" class="btn btn--sm" style="margin-top:.5rem">{% trans "Crear cuenta gratis" %}</a>
         </div>
       </div>
 
       <form class="form-card" id="reservaForm" novalidate>
         <div class="field">
-          <label for="usuario_id">ID de Usuario</label>
-          <input type="number" id="usuario_id" placeholder="Ej. 1" min="1" required />
+          <label for="usuario_id">{% trans "ID de Usuario" %}</label>
+          <input type="number" id="usuario_id" placeholder="{% trans 'Ej. 1' %}" min="1" required />
         </div>
 
         <div class="field">
-          <label for="placa_vehiculo">Vehiculo disponible</label>
+          <label for="placa_vehiculo">{% trans "Vehiculo disponible" %}</label>
           <div class="select-wrapper">
             <select id="placa_vehiculo" required>
-              <option value="">Cargando vehiculos...</option>
+              <option value="">{% trans "Cargando vehiculos..." %}</option>
             </select>
           </div>
           <span class="field__hint" id="vehiculoHint"></span>
@@ -86,11 +84,11 @@
 
         <div class="form-row">
           <div class="field">
-            <label for="fecha_inicio">Fecha de inicio</label>
+            <label for="fecha_inicio">{% trans "Fecha de inicio" %}</label>
             <input type="date" id="fecha_inicio" required />
           </div>
           <div class="field">
-            <label for="fecha_fin">Fecha de fin</label>
+            <label for="fecha_fin">{% trans "Fecha de fin" %}</label>
             <input type="date" id="fecha_fin" required />
           </div>
         </div>
@@ -98,7 +96,7 @@
         <div class="alert alert--error" id="alertReserva" hidden></div>
 
         <button type="submit" class="btn btn--full" id="btnReserva">
-          <span class="btn__text">Confirmar reserva</span>
+          <span class="btn__text">{% trans "Confirmar reserva" %}</span>
           <span class="btn__spinner" aria-hidden="true"></span>
         </button>
       </form>
@@ -108,52 +106,51 @@
 
 <section class="section section--alt" id="pagar">
   <div class="section__inner">
-    <div class="section__label">Paso 2</div>
+    <div class="section__label">{% trans "Paso 2" %}</div>
     <div class="form-layout">
       <div class="form-layout__info">
-        <h2 class="section__title">Registrar<br/>Pago</h2>
+        <h2 class="section__title">{% trans "Registrar" %}<br/>{% trans "Pago" %}</h2>
         <p class="section__body">
-          Una vez creada tu reserva, completa el pago indicando el ID de reserva,
-          el monto y el metodo de pago.
+          {% blocktrans %}Una vez creada tu reserva, completa el pago indicando el ID de reserva, el monto y el metodo de pago.{% endblocktrans %}
         </p>
         <ul class="checklist">
-          <li>Multiples metodos</li>
-          <li>Procesamiento seguro</li>
-          <li>Recibo inmediato</li>
+          <li>{% trans "Multiples metodos" %}</li>
+          <li>{% trans "Procesamiento seguro" %}</li>
+          <li>{% trans "Recibo inmediato" %}</li>
         </ul>
       </div>
       <form class="form-card" id="pagoForm" novalidate>
         <div class="form-row">
           <div class="field">
-            <label for="pago_reserva_id">ID de Reserva</label>
-            <input type="number" id="pago_reserva_id" placeholder="Ej. 5" min="1" required />
+            <label for="pago_reserva_id">{% trans "ID de Reserva" %}</label>
+            <input type="number" id="pago_reserva_id" placeholder="{% trans 'Ej. 5' %}" min="1" required />
           </div>
           <div class="field">
-            <label for="pago_monto">Monto ($)</label>
-            <input type="number" id="pago_monto" placeholder="Ej. 250000" min="1" step="0.01" required />
+            <label for="pago_monto">{% trans "Monto ($)" %}</label>
+            <input type="number" id="pago_monto" placeholder="{% trans 'Ej. 250000' %}" min="1" step="0.01" required />
           </div>
         </div>
         <div class="form-row">
           <div class="field field--full">
-            <label for="pago_metodo">Metodo de pago</label>
+            <label for="pago_metodo">{% trans "Metodo de pago" %}</label>
             <div class="select-wrapper">
               <select id="pago_metodo" required>
-                <option value="">Selecciona un metodo</option>
-                <option value="EFECTIVO">Efectivo</option>
-                <option value="TARJETA_CREDITO">Tarjeta de Credito</option>
-                <option value="TARJETA_DEBITO">Tarjeta de Debito</option>
-                <option value="TRANSFERENCIA">Transferencia</option>
+                <option value="">{% trans "Selecciona un metodo" %}</option>
+                <option value="EFECTIVO">{% trans "Efectivo" %}</option>
+                <option value="TARJETA_CREDITO">{% trans "Tarjeta de Credito" %}</option>
+                <option value="TARJETA_DEBITO">{% trans "Tarjeta de Debito" %}</option>
+                <option value="TRANSFERENCIA">{% trans "Transferencia" %}</option>
               </select>
             </div>
           </div>
           <div class="field">
-            <label for="pago_fecha">Fecha de pago</label>
+            <label for="pago_fecha">{% trans "Fecha de pago" %}</label>
             <input type="date" id="pago_fecha" required />
           </div>
         </div>
         <div class="alert alert--error" id="alertPago" hidden></div>
         <button type="submit" class="btn btn--full" id="btnPago">
-          <span class="btn__text">Procesar pago</span>
+          <span class="btn__text">{% trans "Procesar pago" %}</span>
           <span class="btn__spinner" aria-hidden="true"></span>
         </button>
       </form>
@@ -163,9 +160,9 @@
 
 <section class="section" id="flota">
   <div class="section__inner">
-    <div class="section__label">Flota</div>
+    <div class="section__label">{% trans "Flota" %}</div>
     <div class="section__header">
-      <h2 class="section__title">Vehiculos<br/>disponibles</h2>
+      <h2 class="section__title">{% trans "Vehiculos" %}<br/>{% trans "Disponibles" %}</h2>
     </div>
     <div class="vehicles-grid" id="vehiculosGrid">
       <div class="vehicle-card vehicle-card--skeleton"></div>
@@ -178,20 +175,20 @@
 <div class="modal-overlay" id="modalReserva" hidden>
   <div class="modal" role="dialog" aria-modal="true">
     <div class="modal__icon">OK</div>
-    <h2 class="modal__title">Reserva confirmada</h2>
-    <p class="modal__body">Tu reserva fue creada. Completa el pago en el Paso 2.</p>
+    <h2 class="modal__title">{% trans "Reserva confirmada" %}</h2>
+    <p class="modal__body">{% trans "Tu reserva fue creada. Completa el pago en el Paso 2." %}</p>
     <dl class="modal__detail" id="modalReservaDetail"></dl>
-    <button class="btn btn--full modal-close-btn" id="btnModalReservaIrPagar">Ir a pagar</button>
+    <button class="btn btn--full modal-close-btn" id="btnModalReservaIrPagar">{% trans "Ir a pagar" %}</button>
   </div>
 </div>
 
 <div class="modal-overlay" id="modalPago" hidden>
   <div class="modal" role="dialog" aria-modal="true">
     <div class="modal__icon">OK</div>
-    <h2 class="modal__title">Pago procesado</h2>
-    <p class="modal__body">El pago fue registrado exitosamente.</p>
+    <h2 class="modal__title">{% trans "Pago procesado" %}</h2>
+    <p class="modal__body">{% trans "El pago fue registrado exitosamente." %}</p>
     <dl class="modal__detail" id="modalPagoDetail"></dl>
-    <button class="btn btn--full modal-close-btn">Cerrar</button>
+    <button class="btn btn--full modal-close-btn">{% trans "Cerrar" %}</button>
   </div>
 </div>
 

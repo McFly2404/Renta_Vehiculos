@@ -1,34 +1,34 @@
 {% extends "base.html" %}
-{% load static %}
+{% load static i18n %}
 
-{% block title %}DriveNow - Documentacion API{% endblock %}
+{% block title %}DriveNow - {% trans "Documentacion API" %}{% endblock %}
 
 {% block content %}
 <div class="docs-layout">
   <aside class="docs-sidebar">
     <p class="docs-sidebar__title">Endpoints</p>
     <nav class="docs-nav">
-      <a href="#usuarios" class="docs-nav__link">Usuarios</a>
-      <a href="#vehiculos" class="docs-nav__link">Vehiculos</a>
-      <a href="#reservas" class="docs-nav__link">Reservas</a>
-      <a href="#pagos" class="docs-nav__link">Pagos</a>
-      <a href="#integraciones" class="docs-nav__link">Integraciones</a>
+      <a href="#usuarios" class="docs-nav__link">{% trans "Usuarios" %}</a>
+      <a href="#vehiculos" class="docs-nav__link">{% trans "Vehiculos" %}</a>
+      <a href="#reservas" class="docs-nav__link">{% trans "Reservas" %}</a>
+      <a href="#pagos" class="docs-nav__link">{% trans "Pagos" %}</a>
+      <a href="#integraciones" class="docs-nav__link">{% trans "Integraciones" %}</a>
     </nav>
   </aside>
 
   <main class="docs-content">
     <div class="docs-hero">
       <h1 class="docs-hero__title">DriveNow <span>API</span></h1>
-      <p class="docs-hero__sub">Base URL: <code>http://127.0.0.1:8000/api/</code></p>
+      <p class="docs-hero__sub">{% trans "URL base" %}: <code>http://127.0.0.1:8000/api/</code></p>
     </div>
 
     <section class="docs-section" id="usuarios">
-      <h2 class="docs-section__title">Usuarios</h2>
+      <h2 class="docs-section__title">{% trans "Usuarios" %}</h2>
       <article class="endpoint">
         <div class="endpoint__header">
           <span class="badge badge--post">POST</span>
           <code class="endpoint__url">/api/usuarios/crear/</code>
-          <span class="endpoint__desc">Registrar usuario</span>
+          <span class="endpoint__desc">{% trans "Registrar usuario" %}</span>
         </div>
         <div class="endpoint__body">
           <pre class="code-block">{
@@ -38,55 +38,55 @@
   "licencia": "LIC-00123"
 }</pre>
           <button class="btn-try" data-method="POST" data-url="/api/usuarios/crear/"
-            data-body='{"nombre":"Ana Garcia","cedula":"1234567890","correo":"ana@email.com","licencia":"LIC-00123"}'>Probar</button>
+            data-body='{"nombre":"Ana Garcia","cedula":"1234567890","correo":"ana@email.com","licencia":"LIC-00123"}'>{% trans "Probar" %}</button>
         </div>
       </article>
       <article class="endpoint">
         <div class="endpoint__header">
           <span class="badge badge--get">GET</span>
           <code class="endpoint__url">/api/usuarios/</code>
-          <span class="endpoint__desc">Listar usuarios</span>
+          <span class="endpoint__desc">{% trans "Listar usuarios" %}</span>
         </div>
         <div class="endpoint__body">
-          <button class="btn-try" data-method="GET" data-url="/api/usuarios/">Probar</button>
+          <button class="btn-try" data-method="GET" data-url="/api/usuarios/">{% trans "Probar" %}</button>
         </div>
       </article>
       <article class="endpoint">
         <div class="endpoint__header">
           <span class="badge badge--get">GET</span>
           <code class="endpoint__url">/api/usuarios/1/</code>
-          <span class="endpoint__desc">Detalle de usuario</span>
+          <span class="endpoint__desc">{% trans "Detalle de usuario" %}</span>
         </div>
         <div class="endpoint__body">
-          <button class="btn-try" data-method="GET" data-url="/api/usuarios/1/">Probar</button>
+          <button class="btn-try" data-method="GET" data-url="/api/usuarios/1/">{% trans "Probar" %}</button>
         </div>
       </article>
     </section>
 
     <section class="docs-section" id="vehiculos">
-      <h2 class="docs-section__title">Vehiculos</h2>
+      <h2 class="docs-section__title">{% trans "Vehiculos" %}</h2>
       <article class="endpoint">
         <div class="endpoint__header">
           <span class="badge badge--get">GET</span>
           <code class="endpoint__url">/api/vehiculos/</code>
-          <span class="endpoint__desc">Listar flota</span>
+          <span class="endpoint__desc">{% trans "Listar flota" %}</span>
         </div>
         <div class="endpoint__body">
-          <pre class="code-block">?disponible=true   -> solo vehiculos disponibles
-?disponible=false  -> solo vehiculos ocupados</pre>
-          <button class="btn-try" data-method="GET" data-url="/api/vehiculos/">Todos</button>
-          <button class="btn-try" data-method="GET" data-url="/api/vehiculos/?disponible=true">Disponibles</button>
+          <pre class="code-block">?disponible=true   -> {% trans "solo vehiculos disponibles" %}
+?disponible=false  -> {% trans "solo vehiculos ocupados" %}</pre>
+          <button class="btn-try" data-method="GET" data-url="/api/vehiculos/">{% trans "Todos" %}</button>
+          <button class="btn-try" data-method="GET" data-url="/api/vehiculos/?disponible=true">{% trans "Disponibles" %}</button>
         </div>
       </article>
     </section>
 
     <section class="docs-section" id="reservas">
-      <h2 class="docs-section__title">Reservas</h2>
+      <h2 class="docs-section__title">{% trans "Reservas" %}</h2>
       <article class="endpoint">
         <div class="endpoint__header">
           <span class="badge badge--post">POST</span>
           <code class="endpoint__url">/api/reservas/crear/</code>
-          <span class="endpoint__desc">Crear reserva</span>
+          <span class="endpoint__desc">{% trans "Crear reserva" %}</span>
         </div>
         <div class="endpoint__body">
           <pre class="code-block">{
@@ -96,38 +96,38 @@
   "fecha_fin": "2026-06-05"
 }</pre>
           <button class="btn-try" data-method="POST" data-url="/api/reservas/crear/"
-            data-body='{"usuario_id":1,"placa_vehiculo":"ABC-123","fecha_inicio":"2026-06-01","fecha_fin":"2026-06-05"}'>Probar</button>
+            data-body='{"usuario_id":1,"placa_vehiculo":"ABC-123","fecha_inicio":"2026-06-01","fecha_fin":"2026-06-05"}'>{% trans "Probar" %}</button>
         </div>
       </article>
       <article class="endpoint">
         <div class="endpoint__header">
           <span class="badge badge--get">GET</span>
           <code class="endpoint__url">/api/reservas/</code>
-          <span class="endpoint__desc">Listar reservas</span>
+          <span class="endpoint__desc">{% trans "Listar reservas" %}</span>
         </div>
         <div class="endpoint__body">
-          <button class="btn-try" data-method="GET" data-url="/api/reservas/">Probar</button>
+          <button class="btn-try" data-method="GET" data-url="/api/reservas/">{% trans "Probar" %}</button>
         </div>
       </article>
       <article class="endpoint">
         <div class="endpoint__header">
           <span class="badge badge--post">POST</span>
           <code class="endpoint__url">/api/reservas/1/cancelar/</code>
-          <span class="endpoint__desc">Cancelar reserva</span>
+          <span class="endpoint__desc">{% trans "Cancelar reserva" %}</span>
         </div>
         <div class="endpoint__body">
-          <button class="btn-try" data-method="POST" data-url="/api/reservas/1/cancelar/">Probar</button>
+          <button class="btn-try" data-method="POST" data-url="/api/reservas/1/cancelar/">{% trans "Probar" %}</button>
         </div>
       </article>
     </section>
 
     <section class="docs-section" id="pagos">
-      <h2 class="docs-section__title">Pagos</h2>
+      <h2 class="docs-section__title">{% trans "Pagos" %}</h2>
       <article class="endpoint">
         <div class="endpoint__header">
           <span class="badge badge--post">POST</span>
           <code class="endpoint__url">/api/pagos/</code>
-          <span class="endpoint__desc">Registrar pago</span>
+          <span class="endpoint__desc">{% trans "Registrar pago" %}</span>
         </div>
         <div class="endpoint__body">
           <pre class="code-block">{
@@ -137,52 +137,52 @@
   "fecha_pago": "2026-06-01"
 }</pre>
           <button class="btn-try" data-method="POST" data-url="/api/pagos/"
-            data-body='{"reserva_id":1,"monto":250000,"metodo_pago":"TARJETA_CREDITO","fecha_pago":"2026-06-01"}'>Probar</button>
+            data-body='{"reserva_id":1,"monto":250000,"metodo_pago":"TARJETA_CREDITO","fecha_pago":"2026-06-01"}'>{% trans "Probar" %}</button>
         </div>
       </article>
       <article class="endpoint">
         <div class="endpoint__header">
           <span class="badge badge--post">POST</span>
           <code class="endpoint__url">/api/v2/pagos/</code>
-          <span class="endpoint__desc">Microservicio Flask</span>
+          <span class="endpoint__desc">{% trans "Microservicio Flask" %}</span>
         </div>
         <div class="endpoint__body">
           <button class="btn-try" data-method="POST" data-url="/api/v2/pagos/"
-            data-body='{"reserva_id":1,"monto":250000,"metodo_pago":"TARJETA_CREDITO","fecha_pago":"2026-06-01"}'>Probar</button>
+            data-body='{"reserva_id":1,"monto":250000,"metodo_pago":"TARJETA_CREDITO","fecha_pago":"2026-06-01"}'>{% trans "Probar" %}</button>
         </div>
       </article>
     </section>
 
     <section class="docs-section" id="integraciones">
-      <h2 class="docs-section__title">Integraciones</h2>
+      <h2 class="docs-section__title">{% trans "Integraciones" %}</h2>
       <article class="endpoint">
         <div class="endpoint__header">
           <span class="badge badge--get">GET</span>
           <code class="endpoint__url">/api/integraciones/resumen/</code>
-          <span class="endpoint__desc">Servicio propio JSON</span>
+          <span class="endpoint__desc">{% trans "Servicio propio JSON" %}</span>
         </div>
         <div class="endpoint__body">
-          <button class="btn-try" data-method="GET" data-url="/api/integraciones/resumen/">Probar</button>
+          <button class="btn-try" data-method="GET" data-url="/api/integraciones/resumen/">{% trans "Probar" %}</button>
         </div>
       </article>
       <article class="endpoint">
         <div class="endpoint__header">
           <span class="badge badge--get">GET</span>
           <code class="endpoint__url">/api/integraciones/aliado/</code>
-          <span class="endpoint__desc">Servicio aliado</span>
+          <span class="endpoint__desc">{% trans "Servicio Aliado" %}</span>
         </div>
         <div class="endpoint__body">
-          <button class="btn-try" data-method="GET" data-url="/api/integraciones/aliado/">Probar</button>
+          <button class="btn-try" data-method="GET" data-url="/api/integraciones/aliado/">{% trans "Probar" %}</button>
         </div>
       </article>
       <article class="endpoint">
         <div class="endpoint__header">
           <span class="badge badge--get">GET</span>
           <code class="endpoint__url">/api/integraciones/tercero/</code>
-          <span class="endpoint__desc">API externa por Adapter</span>
+          <span class="endpoint__desc">{% trans "API externa por Adapter" %}</span>
         </div>
         <div class="endpoint__body">
-          <button class="btn-try" data-method="GET" data-url="/api/integraciones/tercero/">Probar</button>
+          <button class="btn-try" data-method="GET" data-url="/api/integraciones/tercero/">{% trans "Probar" %}</button>
         </div>
       </article>
     </section>
@@ -191,7 +191,7 @@
 
 <div class="response-panel" id="responsePanel" hidden>
   <div class="response-panel__header">
-    <span class="response-panel__title">Respuesta</span>
+    <span class="response-panel__title">{% trans "Respuesta" %}</span>
     <div style="display:flex;align-items:center;gap:.75rem">
       <span class="response-panel__status" id="responseStatus"></span>
       <button class="response-panel__close" id="responseClose">X</button>
@@ -379,7 +379,7 @@ document.querySelectorAll('.btn-try').forEach((btn) => {
     const statusEl = document.getElementById('responseStatus');
     const bodyEl = document.getElementById('responseBody');
 
-    bodyEl.textContent = 'Cargando...';
+    bodyEl.textContent = window.DRIVENOW_I18N?.loading ?? 'Cargando...';
     panel.removeAttribute('hidden');
 
     try {
@@ -396,7 +396,7 @@ document.querySelectorAll('.btn-try').forEach((btn) => {
       statusEl.className = `response-panel__status ${res.ok ? 'ok' : 'err'}`;
       bodyEl.textContent = JSON.stringify(data, null, 2);
     } catch (e) {
-      statusEl.textContent = 'Error';
+      statusEl.textContent = window.DRIVENOW_I18N?.error ?? 'Error';
       statusEl.className = 'response-panel__status err';
       bodyEl.textContent = e.message;
     }

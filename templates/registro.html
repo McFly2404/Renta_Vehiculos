@@ -1,46 +1,46 @@
 {% extends "base.html" %}
-{% load static %}
+{% load static i18n %}
 
-{% block title %}DriveNow - Crear cuenta{% endblock %}
+{% block title %}DriveNow - {% trans "Crear cuenta" %}{% endblock %}
 
 {% block content %}
 <div class="auth-page">
   <div class="auth-card">
-    <a href="/" class="auth-card__back">Volver al inicio</a>
+    <a href="/" class="auth-card__back">{% trans "Volver al inicio" %}</a>
 
     <div class="auth-card__logo">Drive<em>Now</em></div>
-    <h1 class="auth-card__title">Crea tu cuenta</h1>
-    <p class="auth-card__sub">Registrate y empieza a reservar en minutos.</p>
+    <h1 class="auth-card__title">{% trans "Crea tu cuenta" %}</h1>
+    <p class="auth-card__sub">{% trans "Registrate y empieza a reservar en minutos." %}</p>
 
     <form id="registroForm" novalidate>
       <div class="field">
-        <label for="reg_nombre">Nombre completo</label>
+        <label for="reg_nombre">{% trans "Nombre completo" %}</label>
         <input type="text" id="reg_nombre" placeholder="Ana Garcia" required autocomplete="name" />
       </div>
       <div class="field">
-        <label for="reg_cedula">Cedula</label>
+        <label for="reg_cedula">{% trans "Cedula" %}</label>
         <input type="text" id="reg_cedula" placeholder="1234567890" required />
       </div>
       <div class="field">
-        <label for="reg_correo">Correo electronico</label>
+        <label for="reg_correo">{% trans "Correo electronico" %}</label>
         <input type="email" id="reg_correo" placeholder="ana@email.com" required autocomplete="email" />
       </div>
       <div class="field">
-        <label for="reg_licencia">Numero de licencia</label>
+        <label for="reg_licencia">{% trans "Numero de licencia" %}</label>
         <input type="text" id="reg_licencia" placeholder="LIC-00123" required />
       </div>
 
       <div class="alert alert--error" id="alertRegistro" hidden></div>
 
       <button type="submit" class="btn btn--full" id="btnRegistro" style="margin-top:.5rem">
-        <span class="btn__text">Crear cuenta</span>
+        <span class="btn__text">{% trans "Crear cuenta" %}</span>
         <span class="btn__spinner" aria-hidden="true"></span>
       </button>
     </form>
 
     <p class="auth-card__footer">
-      Ya tienes cuenta?
-      <a href="/" id="linkIniciarSesion" style="color:var(--c-accent);font-weight:600">Iniciar sesion</a>
+      {% trans "Ya tienes cuenta?" %}
+      <a href="/" id="linkIniciarSesion" style="color:var(--c-accent);font-weight:600">{% trans "Iniciar sesion" %}</a>
     </p>
   </div>
 </div>

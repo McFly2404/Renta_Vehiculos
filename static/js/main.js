@@ -16,6 +16,10 @@ function clearAlert(el) {
   el.setAttribute('hidden', '');
 }
 
+function t(key, fallback) {
+  return window.DRIVENOW_I18N?.[key] ?? fallback;
+}
+
 function parseError(data) {
   if (typeof data === 'string') return data;
   if (data.error) return data.error;
@@ -99,17 +103,17 @@ async function loadVehicleSelect() {
     const list = await res.json();
 
     if (!list.length) {
-      select.innerHTML = '<option value="">No hay vehiculos disponibles</option>';
+      select.innerHTML = `<option value="">${t('noVehiclesAvailable', 'No hay vehiculos disponibles')}</option>`;
       return;
     }
 
-    select.innerHTML = '<option value="">Selecciona un vehiculo</option>'
+    select.innerHTML = `<option value="">${t('selectVehicle', 'Selecciona un vehiculo')}</option>`
       + list.map(v =>
           `<option value="${v.placa}"
              data-modelo="${v.modelo}"
              data-cat="${categoryLabel(v.categoria)}"
              data-tarifa="${v.tarifa_diaria}">
-            ${v.placa} - ${v.modelo} ($${formatCurrency(v.tarifa_diaria)}/dia)
+            ${v.placa} - ${v.modelo} ($${formatCurrency(v.tarifa_diaria)}/${t('day', 'dia')})
           </option>`
         ).join('');
 
@@ -120,10 +124,10 @@ async function loadVehicleSelect() {
         return;
       }
       hint.textContent =
-        `${opt.dataset.cat} - ${opt.dataset.modelo} - $${formatCurrency(opt.dataset.tarifa)}/dia`;
+        `${opt.dataset.cat} - ${opt.dataset.modelo} - $${formatCurrency(opt.dataset.tarifa)}/${t('day', 'dia')}`;
     });
   } catch {
-    select.innerHTML = '<option value="">Error al cargar vehiculos</option>';
+    select.innerHTML = `<option value="">${t('fleetLoadError', 'Error al cargar vehiculos')}</option>`;
   }
 }
 
@@ -163,13 +167,13 @@ reservaForm?.addEventListener('submit', async (e) => {
 
     if (status === 201) {
       document.getElementById('modalReservaDetail').innerHTML = detailRows([
-        ['ID Reserva', `#${data.id}`],
-        ['Usuario', data.usuario?.nombre ?? `#${payload.usuario_id}`],
-        ['Vehiculo', data.vehiculo?.placa ?? payload.placa_vehiculo],
-        ['Modelo', data.vehiculo?.modelo ?? '-'],
-        ['Fecha inicio', data.fecha_inicio],
-        ['Fecha fin', data.fecha_fin],
-        ['Estado', data.estado],
+        [t('reservationId', 'ID Reserva'), `#${data.id}`],
+        [t('user', 'Usuario'), data.usuario?.nombre ?? `#${payload.usuario_id}`],
+        [t('vehicle', 'Vehiculo'), data.vehiculo?.placa ?? payload.placa_vehiculo],
+        [t('model', 'Modelo'), data.vehiculo?.modelo ?? '-'],
+        [t('reservationStart', 'Fecha inicio'), data.fecha_inicio],
+        [t('reservationEnd', 'Fecha fin'), data.fecha_fin],
+        [t('status', 'Estado'), data.estado],
       ]);
 
       const pagoInput = document.getElementById('pago_reserva_id');
@@ -191,7 +195,7 @@ reservaForm?.addEventListener('submit', async (e) => {
       showAlert(alertReserva, parseError(data));
     }
   } catch {
-    showAlert(alertReserva, 'No se pudo conectar al servidor.');
+    showAlert(alertReserva, t('connectingError', 'No se pudo conectar al servidor.'));
   } finally {
     setLoading(btnReserva, false);
   }
@@ -219,7 +223,7 @@ async function registrarPago(payload) {
     }
   }
 
-  return { status: 500, data: { error: 'No se pudo registrar el pago.' } };
+  return { status: 500, data: { error: t('paymentRegisterError', 'No se pudo registrar el pago.') } };
 }
 
 function normalizarPago(data, payload) {
@@ -251,12 +255,12 @@ pagoForm?.addEventListener('submit', async (e) => {
     if (status === 201) {
       const pago = normalizarPago(data, payload);
       document.getElementById('modalPagoDetail').innerHTML = detailRows([
-        ['ID Pago', `#${pago.id}`],
-        ['Reserva', `#${pago.reserva}`],
-        ['Monto', `$${formatCurrency(pago.monto)}`],
-        ['Metodo', pago.metodo_pago_display],
-        ['Estado', pago.estado_pago_display],
-        ['Fecha', pago.fecha_pago],
+        [t('paymentId', 'ID Pago'), `#${pago.id}`],
+        [t('reservation', 'Reserva'), `#${pago.reserva}`],
+        [t('amount', 'Monto'), `$${formatCurrency(pago.monto)}`],
+        [t('method', 'Metodo'), pago.metodo_pago_display],
+        [t('status', 'Estado'), pago.estado_pago_display],
+        [t('paymentDate', 'Fecha'), pago.fecha_pago],
       ]);
       openModal('modalPago');
       pagoForm.reset();
@@ -265,7 +269,7 @@ pagoForm?.addEventListener('submit', async (e) => {
       showAlert(alertPago, parseError(data));
     }
   } catch {
-    showAlert(alertPago, 'No se pudo conectar al servidor.');
+    showAlert(alertPago, t('connectingError', 'No se pudo conectar al servidor.'));
   } finally {
     setLoading(btnPago, false);
   }
@@ -308,26 +312,26 @@ async function loadFlota() {
     const res = await fetch('/api/vehiculos/');
     const list = await res.json();
     if (!list.length) {
-      grid.innerHTML = '<p style="color:var(--c-muted)">No hay vehiculos registrados aun.</p>';
+      grid.innerHTML = `<p style="color:var(--c-muted)">${t('noVehiclesRegistered', 'No hay vehiculos registrados aun.')}</p>`;
       return;
     }
 
     grid.innerHTML = list.slice(0, 6).map((v, i) => `
       <article class="vehicle-card" style="cursor:pointer;animation-delay:${i * .08}s"
-               data-placa="${v.placa}" title="Seleccionar ${v.placa}">
+               data-placa="${v.placa}" title="${t('select', 'Seleccionar')} ${v.placa}">
         <div class="vehicle-card__icon vehicle-card__icon--text">${categoryTag(v.categoria)}</div>
         <div class="vehicle-card__body">
           <span class="vehicle-card__cat">${categoryLabel(v.categoria)} - ${v.capacidad} pax</span>
           <h3 class="vehicle-card__name">${v.modelo}</h3>
           <p style="font-size:.78rem;color:var(--c-muted);margin:.15rem 0 .6rem">
-            Placa: <strong>${v.placa}</strong>
+            ${t('plate', 'Placa')}: <strong>${v.placa}</strong>
           </p>
           <p class="vehicle-card__price">
-            $${formatCurrency(v.tarifa_diaria)} <span>/ dia</span>
+            $${formatCurrency(v.tarifa_diaria)} <span>/ ${t('day', 'dia')}</span>
           </p>
         </div>
         <span class="vehicle-card__badge ${v.disponible ? '' : 'vehicle-card__badge--alt'}">
-          ${v.disponible ? 'Disponible' : 'Ocupado'}
+          ${v.disponible ? t('available', 'Disponible') : t('occupied', 'Ocupado')}
         </span>
       </article>`
     ).join('');

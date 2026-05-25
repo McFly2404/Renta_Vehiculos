@@ -58,3 +58,392 @@ msgstr "Spanish"
 
 msgid "English"
 msgstr "English"
+
+msgid "Activo"
+msgstr "Active"
+
+msgid "Servicio Aliado"
+msgstr "Ally Service"
+
+msgid "API de Terceros (Adapter)"
+msgstr "Third-Party API (Adapter)"
+
+msgid "Disponible"
+msgstr "Available"
+
+msgid "Conectado"
+msgstr "Connected"
+
+msgid "No se pudo conectar al servidor."
+msgstr "Could not connect to the server."
+
+msgid "dia"
+msgstr "day"
+
+msgid "Error"
+msgstr "Error"
+
+msgid "Error al cargar vehiculos"
+msgstr "Error loading vehicles"
+
+msgid "Humedad"
+msgstr "Humidity"
+
+msgid "No se pudo cargar el estado de integraciones."
+msgstr "Could not load integration status."
+
+msgid "Cargando..."
+msgstr "Loading..."
+
+msgid "Metodo"
+msgstr "Method"
+
+msgid "Modelo"
+msgstr "Model"
+
+msgid "Monto"
+msgstr "Amount"
+
+msgid "Sin datos"
+msgstr "No data"
+
+msgid "No hay vehiculos disponibles"
+msgstr "No vehicles available"
+
+msgid "No hay vehiculos registrados aun."
+msgstr "No vehicles registered yet."
+
+msgid "No configurado"
+msgstr "Not configured"
+
+msgid "Ocupado"
+msgstr "Occupied"
+
+msgid "Servicio a Proveer"
+msgstr "Provided Service"
+
+msgid "Pagos"
+msgstr "Payments"
+
+msgid "Fecha"
+msgstr "Date"
+
+msgid "ID Pago"
+msgstr "Payment ID"
+
+msgid "No se pudo registrar el pago."
+msgstr "Could not register the payment."
+
+msgid "Pendiente"
+msgstr "Pending"
+
+msgid "Placa"
+msgstr "Plate"
+
+msgid "Reserva"
+msgstr "Booking"
+
+msgid "Fecha fin"
+msgstr "End date"
+
+msgid "ID Reserva"
+msgstr "Booking ID"
+
+msgid "Fecha inicio"
+msgstr "Start date"
+
+msgid "Reservas"
+msgstr "Bookings"
+
+msgid "Respuesta"
+msgstr "Response"
+
+msgid "Seleccionar"
+msgstr "Select"
+
+msgid "Selecciona un vehiculo"
+msgstr "Select a vehicle"
+
+msgid "Estado"
+msgstr "Status"
+
+msgid "Resumen del Sistema"
+msgstr "System Summary"
+
+msgid "Temp"
+msgstr "Temp"
+
+msgid "no encontrado. Verifica tu ID."
+msgstr "not found. Check your ID."
+
+msgid "Usuarios"
+msgstr "Users"
+
+msgid "Vehiculo"
+msgstr "Vehicle"
+
+msgid "Vehiculos"
+msgstr "Vehicles"
+
+msgid "Bienvenido"
+msgstr "Welcome"
+
+msgid "Redirigiendo..."
+msgstr "Redirecting..."
+
+msgid "Viento"
+msgstr "Wind"
+
+msgid "Renta de Vehiculos"
+msgstr "Vehicle Rental"
+
+msgid "Disponible 24 / 7"
+msgstr "Available 24 / 7"
+
+msgid "Conduce"
+msgstr "Drive"
+
+msgid "sin limites"
+msgstr "without limits"
+
+msgid "Reserva en minutos. Recoge en cualquier sucursal. Sin filas, sin papeleo. Solo tu y la carretera."
+msgstr "Book in minutes. Pick up at any branch. No lines, no paperwork. Just you and the road."
+
+msgid "Hacer una reserva"
+msgstr "Make a booking"
+
+msgid "Ver flota"
+msgstr "View fleet"
+
+msgid "Sucursales"
+msgstr "Branches"
+
+msgid "Calificacion"
+msgstr "Rating"
+
+msgid "Paso 1"
+msgstr "Step 1"
+
+msgid "Nueva"
+msgstr "New"
+
+msgid "Selecciona un vehiculo disponible de la lista y elige tus fechas. Si no tienes cuenta aun, creala en segundos."
+msgstr "Select an available vehicle from the list and choose your dates. If you do not have an account yet, create one in seconds."
+
+msgid "Confirmacion inmediata"
+msgstr "Instant confirmation"
+
+msgid "Seleccion por placa"
+msgstr "Select by plate"
+
+msgid "Cancelacion flexible"
+msgstr "Flexible cancellation"
+
+msgid "Sesion activa como"
+msgstr "Active session as"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Nuevo aqui?"
+msgstr "New here?"
+
+msgid "Crear cuenta gratis"
+msgstr "Create a free account"
+
+msgid "ID de Usuario"
+msgstr "User ID"
+
+msgid "Ej. 1"
+msgstr "Ex. 1"
+
+msgid "Vehiculo disponible"
+msgstr "Available vehicle"
+
+msgid "Cargando vehiculos..."
+msgstr "Loading vehicles..."
+
+msgid "Fecha de inicio"
+msgstr "Start date"
+
+msgid "Fecha de fin"
+msgstr "End date"
+
+msgid "Confirmar reserva"
+msgstr "Confirm booking"
+
+msgid "Paso 2"
+msgstr "Step 2"
+
+msgid "Registrar"
+msgstr "Register"
+
+msgid "Pago"
+msgstr "Payment"
+
+msgid "Una vez creada tu reserva, completa el pago indicando el ID de reserva, el monto y el metodo de pago."
+msgstr "Once your booking is created, complete the payment with the booking ID, amount and payment method."
+
+msgid "Multiples metodos"
+msgstr "Multiple methods"
+
+msgid "Procesamiento seguro"
+msgstr "Secure processing"
+
+msgid "Recibo inmediato"
+msgstr "Instant receipt"
+
+msgid "ID de Reserva"
+msgstr "Booking ID"
+
+msgid "Ej. 5"
+msgstr "Ex. 5"
+
+msgid "Monto ($)"
+msgstr "Amount ($)"
+
+msgid "Ej. 250000"
+msgstr "Ex. 250000"
+
+msgid "Metodo de pago"
+msgstr "Payment method"
+
+msgid "Selecciona un metodo"
+msgstr "Select a method"
+
+msgid "Efectivo"
+msgstr "Cash"
+
+msgid "Tarjeta de Credito"
+msgstr "Credit Card"
+
+msgid "Tarjeta de Debito"
+msgstr "Debit Card"
+
+msgid "Transferencia"
+msgstr "Bank Transfer"
+
+msgid "Fecha de pago"
+msgstr "Payment date"
+
+msgid "Procesar pago"
+msgstr "Process payment"
+
+
+msgid "Reserva confirmada"
+msgstr "Booking confirmed"
+
+msgid "Tu reserva fue creada. Completa el pago en el Paso 2."
+msgstr "Your booking was created. Complete the payment in Step 2."
+
+msgid "Ir a pagar"
+msgstr "Go to payment"
+
+msgid "Pago procesado"
+msgstr "Payment processed"
+
+msgid "El pago fue registrado exitosamente."
+msgstr "The payment was registered successfully."
+
+msgid "Cerrar"
+msgstr "Close"
+
+msgid "Volver al inicio"
+msgstr "Back to home"
+
+msgid "Ingresa tu ID de usuario para continuar."
+msgstr "Enter your user ID to continue."
+
+msgid "Entrar"
+msgstr "Sign in"
+
+msgid "No tienes cuenta?"
+msgstr "Do not have an account?"
+
+msgid "Crea tu cuenta"
+msgstr "Create your account"
+
+msgid "Registrate y empieza a reservar en minutos."
+msgstr "Sign up and start booking in minutes."
+
+msgid "Nombre completo"
+msgstr "Full name"
+
+msgid "Cedula"
+msgstr "National ID"
+
+msgid "Correo electronico"
+msgstr "Email"
+
+msgid "Numero de licencia"
+msgstr "License number"
+
+msgid "Ya tienes cuenta?"
+msgstr "Already have an account?"
+
+msgid "del Ecosistema"
+msgstr "of the Ecosystem"
+
+msgid "Servicios"
+msgstr "Services"
+
+msgid "conectados"
+msgstr "connected"
+
+msgid "Panel operativo para validar el servicio propio, el consumo del aliado y la API externa por Adapter."
+msgstr "Operational panel to validate the owned service, ally service consumption and the external API through Adapter."
+
+msgid "Endpoints de evidencia"
+msgstr "Evidence endpoints"
+
+msgid "URL base"
+msgstr "Base URL"
+
+msgid "Registrar usuario"
+msgstr "Register user"
+
+msgid "Probar"
+msgstr "Try"
+
+msgid "Listar usuarios"
+msgstr "List users"
+
+msgid "Detalle de usuario"
+msgstr "User detail"
+
+msgid "Listar flota"
+msgstr "List fleet"
+
+msgid "Todos"
+msgstr "All"
+
+msgid "Disponibles"
+msgstr "Available"
+
+msgid "Crear reserva"
+msgstr "Create booking"
+
+msgid "Listar reservas"
+msgstr "List bookings"
+
+msgid "Cancelar reserva"
+msgstr "Cancel booking"
+
+msgid "Registrar pago"
+msgstr "Register payment"
+
+msgid "Microservicio Flask"
+msgstr "Flask microservice"
+
+msgid "Servicio propio JSON"
+msgstr "Owned JSON service"
+
+
+msgid "API externa por Adapter"
+msgstr "External API through Adapter"
+
+msgid "solo vehiculos disponibles"
+msgstr "available vehicles only"
+
+msgid "solo vehiculos ocupados"
+msgstr "occupied vehicles only"
